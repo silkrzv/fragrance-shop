@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Autentificare - Fragrance Shop</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="logo-title">
+            <a href="index.html" class="logo-link">
+              <img src="../images/logo.png" alt="Fragrance Shop Logo" width="80" height="80">
+              <h1>Fragrance Shop</h1>
+            </a>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Caută parfumuri, accesorii...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-menu" id="main-menu">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
+              <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Autentificare</a></li>
+              <li class="nav-item"><a href="signup.html" class="nav-link"><i class="fas fa-user-plus"></i> Înregistrare</a></li>
+              <li class="nav-item">
+                <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
+                  <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <main class="login-page">
+        <section class="login-container">
+            <h2 class="login-title"><i class="fas fa-sign-in-alt"></i> Autentificare</h2>
+            <form method="post" action="login_process.php" class="login-form">
+                <fieldset class="login-fieldset">
+                    <label for="email" class="login-label"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required class="login-input">
+
+                    <label for="password" class="login-label"><i class="fas fa-lock"></i> Parolă:</label>
+                    <input type="password" id="password" name="password" required class="login-input">
+
+                    <input type="submit" value="Autentifică-te" class="login-button">
+                </fieldset>
+            </form>
+
+            <aside class="login-links">
+                <p><a href="forgot_password.html" class="link"><i class="fas fa-key"></i> Ai uitat parola?</a></p>
+                <h3><i class="fas fa-user-plus"></i> Nu ai cont? <a href="signup.html" class="link">Înregistrează-te aici</a></h3>
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fragrance Shop</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
