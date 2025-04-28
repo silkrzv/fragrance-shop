@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragrance Shop - Home</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="logo-title">
+            <a href="index.html" class="logo-link">
+              <img src="../images/logo.png" alt="Fragrance Shop Logo" width="80" height="80">
+              <h1>Fragrance Shop</h1>
+            </a>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Caută parfumuri, accesorii...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-menu" id="main-menu">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
+              <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Autentificare</a></li>
+              <li class="nav-item"><a href="signup.html" class="nav-link"><i class="fas fa-user-plus"></i> Înregistrare</a></li>
+              <li class="nav-item">
+                <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
+                  <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+    <main class="main-content">
+        <section class="welcome-section">
+            <h2>
+                Bine ai venit!
+            </h2>
+            <p>
+                Descoperă cele mai elegante parfumuri pentru orice ocazie.
+            </p>
+        </section>
+
+        <section class="image-slider">
+            <div class="large-image">
+                <input type="radio" name="slider" id="img1" checked>
+                <input type="radio" name="slider" id="img2">
+                <input type="radio" name="slider" id="img3">
+        
+                <div class="images">
+                    <img src="../images/chanel_no5.jpg" alt="Chanel No 5">
+                    <img src="../images/dior_hintense.jpg" alt="Dior Hintense">
+                    <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage">
+                </div>
+            </div>
+        
+            <div class="thumbnails">
+                <label for="img1"><img src="../images/chanel_no5.jpg" alt="Thumbnail 1"></label>
+                <label for="img2"><img src="../images/dior_hintense.jpg" alt="Thumbnail 2"></label>
+                <label for="img3"><img src="../images/dior_sauvage.jpg" alt="Thumbnail 3"></label>
+            </div>
+
+            <!-- Controls -->
+            <div class="slider-controls">
+                <button id="playPauseBtn">Play</button>
+                <label for="repeatCheckbox">
+                    <input type="checkbox" id="repeatCheckbox"> Repetă
+                </label>
+                <label for="intervalSelect">Interval:</label>
+                <select id="intervalSelect">
+                    <option value="1000">1 sec</option>
+                    <option value="2000">2 sec</option>
+                    <option value="3000">3 sec</option>
+                    <option value="5000">5 sec</option>
+                </select>
+            </div>
+        </section>
+    
+        <section class="popular-perfumes">
+            <h2 style="font-family: 'Merriweather', serif; font-size: 1.8em; color: #444; margin-bottom: 15px;">
+                <i class="fas fa-star"></i> Parfumuri populare
+            </h2>
+    
+            <article class="perfume-card">
+                <h3 style="font-family: 'Merriweather', serif; font-size: 1.5em; color: #333;">
+                    Chanel No. 5
+                </h3>
+                <figure>
+                    <img src="../images/chanel_no5.jpg" alt="Chanel No. 5">
+                    <!-- <figcaption>Chanel No. 5</figcaption> -->
+                </figure>
+                <p><i class="fas fa-tag"></i> <strong>Brand:</strong> Chanel</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Preț:</strong> 500 RON</p>
+                <p class="description" style="font-family: 'Open Sans', sans-serif; font-size: 1em; color: #555;">
+                    Un parfum floral clasic pentru femei.
+                </p>
+            </article>
+    
+            <article class="perfume-card">
+                <h3 style="font-family: 'Merriweather', serif; font-size: 1.5em; color: #333;">
+                    Dior Sauvage EDT
+                </h3>
+                <figure>
+                    <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage">
+                    <!-- <figcaption>Dior Sauvage EDT</figcaption> -->
+                </figure>
+                <p><i class="fas fa-tag"></i> <strong>Brand:</strong> Dior</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Preț:</strong> 450 RON</p>
+                <p class="description" style="font-family: 'Open Sans', sans-serif; font-size: 1em; color: #555;">
+                    Un parfum masculin intens cu note lemnoase.
+                </p>
+            </article>
+        </section>
+    
+        <aside class="reviews">
+            <h2>
+              <i class="fas fa-comments"></i> Recenzii recente
+            </h2>
+          
+            <form id="reviewForm">
+              <input type="text" id="nameInput" placeholder="Numele tău" required>
+              <input type="text" id="perfumeInput" placeholder="Parfumul" required>
+              <input type="text" id="reviewInput" placeholder="Recenzia ta" required>
+              <select id="starsInput" required>
+                <option value="">Stele</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
+              </select>
+              <button type="submit">Adaugă Recenzie</button>
+            </form>
+          
+            <table class="sortable">
+              <thead>
+                <tr>
+                  <th><i class="fas fa-user"></i> Nume</th>
+                  <th><i class="fas fa-spray-can"></i> Parfum</th>
+                  <th><i class="fas fa-comment-dots"></i> Recenzie</th>
+                  <th><i class="fas fa-star"></i> Stele</th>
+                </tr>
+              </thead>
+              <tbody id="reviewsTableBody">
+                <tr>
+                  <td>Maria</td>
+                  <td>Chanel No. 5</td>
+                  <td>Un parfum elegant și rafinat, perfect pentru seară.</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Alex Rachiu</td>
+                  <td>Dior Sauvage</td>
+                  <td>Miroase jumatate de Cluj asa!</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Marian de la Oradie</td>
+                  <td>Dior Sauvage</td>
+                  <td>Topul de pe lume</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Vasile</td>
+                  <td>Armani Code Parfum</td>
+                  <td>nu tine de loc bai frate am dat banii degeaba..........</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+          </aside>
+          
+    </main>
+
+    <section id="dynamic-list-section" style="margin-top: 40px;">
+        <h2 style="text-align: center; font-family: 'Lora', serif;">Descoperă mai mult</h2>
+        <ul id="dynamic-list">
+            <li class="list-item visible">
+                <div>Parfumurile noastre sunt create cu esențe naturale rare.</div>
+                <a href="#">Read more</a>
+            </li>
+            <li class="list-item">
+                <div>Livrare rapidă oriunde în România în 24-48h.</div>
+                <a href="#">Read more</a>
+            </li>
+            <li class="list-item">
+                <div>Fiecare parfum este ambalat manual cu grijă.</div>
+                <a href="#">Read more</a>
+            </li>
+            <li class="list-item">
+                <div>Reduceri speciale pentru membrii autentificați.</div>
+                <a href="#">Read more</a>
+            </li>
+        </ul>
+        <div class="list-buttons">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2025 Fragrance Shop</p>
+    </footer>
+
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

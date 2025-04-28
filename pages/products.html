@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Parfumuri - Fragrance Shop</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="logo-title">
+            <a href="index.html" class="logo-link">
+              <img src="../images/logo.png" alt="Fragrance Shop Logo" width="80" height="80">
+              <h1>Fragrance Shop</h1>
+            </a>
+          </div>
+          <div class="search-bar">
+            <input type="text" placeholder="Caută parfumuri, accesorii...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </div>
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <nav class="main-menu" id="main-menu">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
+              <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Autentificare</a></li>
+              <li class="nav-item"><a href="signup.html" class="nav-link"><i class="fas fa-user-plus"></i> Înregistrare</a></li>
+              <li class="nav-item">
+                <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
+                <ul class="submenu">
+                  <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
+                  <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+    <!-- Conținut principal -->
+<main class="main-content">
+    <section class="parfum-list">
+        <h2 class="section-title"><i class="fa-solid fa-store"></i> Lista Parfumurilor</h2>
+
+        <!-- Dior Sauvage -->
+<article class="parfum-item">
+    <h3 class="parfum-title">Dior Sauvage EDT</h3>
+    <div class="parfum-img-container">
+        <img class="parfum-img" src="../images/dior_sauvage.jpg" alt="Dior Sauvage">
+        <div class="parfum-info-hover">
+            <p><strong>Despre produs:</strong> Dior Sauvage EDT este un parfum lemnos-aromatic, cu note proaspete de bergamotă, piper și ambroxan, oferind o senzație de naturalețe și energie. Ideal pentru bărbații care caută un parfum distinctiv și curajos.</p>
+            <p><strong>Specificații:</strong> Disponibil in varianta de 30/50/100/200 ml, parfumerie masculină.</p>
+        </div>
+    </div>
+    <div class="parfum-info">
+        <table class="parfum-table">
+            <thead>
+                <tr>
+                    <th><i class="fa-solid fa-tag"></i> Brand</th>
+                    <th><i class="fa-solid fa-coins"></i> Preț</th>
+                    <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dior</td>
+                    <td>450 lei</td>
+                    <td>
+                        <table class="notes-table">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                    <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                    <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vanilie, Lemn de santal</td>
+                                    <td>Lavandă, Piper</td>
+                                    <td>Bergamotă, Anason</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="parfum-type"><strong><i class="fa-solid fa-mars"></i> Tip:</strong> Parfum bărbătesc</p>
+    <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+</article>
+
+
+        <!-- Dior Homme Intense -->
+        <article class="parfum-item">
+        <h3 class="parfum-title">Dior Homme Intense</h3>
+        <div class="parfum-img-container">
+            <img class="parfum-img" src="../images/dior_hintense.jpg" alt="Dior Homme Intense">
+            <div class="parfum-info-hover">
+                <p><strong>Despre produs:</strong> Dior Homme Intense este un parfum lemnos-floral, cu note de iris, vetiver și piele, creând o atmosferă sofisticată și elegantă. Perfect pentru o seară specială, cu un caracter puternic și rafinat.</p>
+                <p><strong>Specificații:</strong> Disponibil in varianta de 50/100/150 ml, parfumerie masculină.</p>
+            </div>
+        </div>
+            <table class="parfum-table">
+                <thead>
+                    <tr>
+                        <th><i class="fa-solid fa-tag"></i> Brand</th>
+                        <th><i class="fa-solid fa-coins"></i> Preț</th>
+                        <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dior</td>
+                        <td>550 lei</td>
+                        <td>
+                            <table class="notes-table">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                        <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                        <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Vetiver, Cedarwood</td>
+                                        <td>Iris, Ambrette, Para</td>
+                                        <td>Lavanda</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="parfum-type"><strong><i class="fa-solid fa-mars"></i> Tip:</strong> Parfum bărbătesc</p>
+        <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+    </article>
+
+        <!-- Armani Code -->
+        <article class="parfum-item">
+            <h3 class="parfum-title">Armani Code Parfum</h3>
+            <div class="parfum-img-container">
+                <img class="parfum-img" src="../images/armani_code.jpg" alt="Armani Code Parfum">
+                <div class="parfum-info-hover">
+                    <p><strong>Despre produs:</strong> Armani Code Parfum este un parfum oriental-vanilat, cu note de mandarină, lavandă, tonka și lemn, ce emană o senzualitate misterioasă și seducătoare. Ideal pentru o seară de neuitat, plină de eleganță.</p>
+                    <p><strong>Specificații:</strong> Disponibil in varianta de 50/75/125 ml, parfumerie masculină.</p>
+                </div>
+            </div>
+                <table class="parfum-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fa-solid fa-tag"></i> Brand</th>
+                            <th><i class="fa-solid fa-coins"></i> Preț</th>
+                            <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Armani</td>
+                            <td>500 lei</td>
+                            <td>
+                                <table class="notes-table">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                            <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                            <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cedar, Tonka bean</td>
+                                            <td>Iris, aldehide, Orris, Clary Sage</td>
+                                            <td>Bergamotă, Frunza de Bergamotă</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="parfum-type"><strong><i class="fa-solid fa-mars"></i> Tip:</strong> Parfum bărbătesc</p>
+            <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+        </article>
+
+        <!-- Chanel No. 5 -->
+        <article class="parfum-item">
+            <h3 class="parfum-title">Chanel No. 5</h3>
+            <div class="parfum-img-container">
+                <img class="parfum-img" src="../images/chanel_no5.jpg" alt="Chanel No. 5">
+                <div class="parfum-info-hover">
+                    <p><strong>Despre produs:</strong> Chanel No. 5 este un parfum clasic floral-aldehidic, ce combină note de iasomie, trandafir, vanilie și lemn de santal, oferind o esență elegantă și atemporală. Ideal pentru momente de rafinament și sofisticare.</p>
+                    <p><strong>Specificații:</strong> Disponibil in varianta de 50/100 ml, parfumerie feminină.</p>
+                </div>
+            </div>
+                <table class="parfum-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fa-solid fa-tag"></i> Brand</th>
+                            <th><i class="fa-solid fa-coins"></i> Preț</th>
+                            <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chanel</td>
+                            <td>500 lei</td>
+                            <td>
+                                <table class="notes-table">
+                                    <thead>
+                                        <tr>
+                                            <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                            <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                            <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Vanilie, Vetiver</td>
+                                            <td>Iasomie, Trandafir</td>
+                                            <td>Lămâie, Neroli</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="parfum-type"><strong><i class="fa-solid fa-venus"></i> Tip:</strong> Parfum feminin</p>
+            <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+        </article>
+    </section>
+
+    <!-- Lattafa Khamrah -->
+    <article class="parfum-item">
+        <h3 class="parfum-title">Lattafa Khamrah</h3>
+        <div class="parfum-img-container">
+            <img class="parfum-img" src="../images/lattafa_khamrah.jpg" alt="Lattafa Khamrah">
+            <div class="parfum-info-hover">
+                <p><strong>Despre produs:</strong> Lattafa Khamrah este un parfum oriental și dulce, ce îmbină note de fructe de pădure, vanilie, caramel și lemn, creând o senzație caldă și senzuală. Ideal pentru serile speciale, emanând eleganță și rafinament.</p>
+                <p><strong>Specificații:</strong> Disponibil in varianta de 100ml, parfum unisex.</p>
+            </div>
+        </div>
+            <table class="parfum-table">
+                <thead>
+                    <tr>
+                        <th><i class="fa-solid fa-tag"></i> Brand</th>
+                        <th><i class="fa-solid fa-coins"></i> Preț</th>
+                        <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lattafa</td>
+                        <td>150 lei</td>
+                        <td>
+                            <table class="notes-table">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                        <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                        <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Vanilie, Boabe de tonka, Amberwood, Smirnă, Benzoin, Akigalawood </td>
+                                        <td>Dates, Praline, Tuberoză, Mahonial</td>
+                                        <td>Scorțișoară, Bergamotă, Nucșoară</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="parfum-type"><strong><i class="fa-solid fa-venus"></i> Tip:</strong> Parfum unisex</p>
+        <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+    </article>
+</section>
+
+<!-- YSL Libre -->
+<article class="parfum-item">
+    <h3 class="parfum-title">Yves Saint Laurent Libre EDP</h3>
+    <div class="parfum-img-container">
+        <img class="parfum-img" src="../images/ysl_libre.jpg" alt="YSL Libre EDP">
+        <div class="parfum-info-hover">
+            <p><strong>Despre produs:</strong> YSL Libre EDP este un parfum floral oriental, ce combină lavandă, flori de portocal și vanilie, oferind o senzație de libertate și eleganță.</p>
+            <p><strong>Specificații:</strong> Disponibil in varianta de 50/100 ml, parfumerie feminină.</p>
+        </div>
+    </div>
+        <table class="parfum-table">
+            <thead>
+                <tr>
+                    <th><i class="fa-solid fa-tag"></i> Brand</th>
+                    <th><i class="fa-solid fa-coins"></i> Preț</th>
+                    <th><i class="fa-solid fa-leaf"></i> Ingrediente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Yves Saint Laurent</td>
+                    <td>600 lei</td>
+                    <td>
+                        <table class="notes-table">
+                            <thead>
+                                <tr>
+                                    <th><i class="fa-solid fa-layer-group"></i> Note de bază</th>
+                                    <th><i class="fa-solid fa-heart"></i> Note de mijloc</th>
+                                    <th><i class="fa-solid fa-wind"></i> Note de vârf</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vanilie de madagascar, Musk, Cedar, Ambergris</td>
+                                    <td>Lavandă, Orange Blossom, Jasmine</td>
+                                    <td>Lavandă, Mandarin Orange, Black Currant, Petitgrain</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="parfum-type"><strong><i class="fa-solid fa-venus"></i> Tip:</strong> Parfum feminin</p>
+    <button class="btn btn-add"><i class="fa-solid fa-cart-plus"></i> Adaugă în coș</button>
+</article>
+</section>
+
+
+
+    <!-- Disponibilitate Parfumuri -->
+    <section class="parfum-availability">
+        <h2 class="section-title"><i class="fa-solid fa-warehouse"></i> Disponibilitate Parfumuri</h2>
+        <table class="availability-table">
+            <thead>
+                <tr>
+                    <th><i class="fa-solid fa-bottle-droplet"></i> Parfum</th>
+                    <th><i class="fa-solid fa-box"></i> Disponibilitate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dior Sauvage</td>
+                    <td><i class="fa-solid fa-check-circle" style="color: green;"></i> În stoc</td>
+                </tr>
+                <tr>
+                    <td>Dior Homme Intense</td>
+                    <td><i class="fa-solid fa-check-circle" style="color: green;"></i> În stoc</td>
+                </tr>
+                <tr>
+                    <td>Armani Code Parfum</td>
+                    <td><i class="fa-solid fa-check-circle" style="color: green;"></i> În stoc</td>
+                </tr>
+                <tr>
+                    <td>Chanel No. 5</td>
+                    <td><i class="fa-solid fa-exclamation-circle" style="color: orange;"></i> Stoc limitat</td>
+                </tr>
+                <tr>
+                    <td>Lattafa Khamrah</td>
+                    <td><i class="fa-solid fa-check-circle" style="color: green;"></i> În stoc</td>
+                </tr>
+                <tr>
+                    <td>Yves Saint Laurent Libre EDP</td>
+                    <td><i class="fa-solid fa-check-circle" style="color: orange;"></i> Stoc limitat</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fragrance Shop</p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

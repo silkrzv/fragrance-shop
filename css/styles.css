@@ -1,0 +1,1256 @@
+/* ----- RESET GENERAL ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- BODY ----- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----- HEADER ----- */
+header {
+    background: linear-gradient(to right, #7380C7, #9BAACC);
+    padding: 10px 30px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-title img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo-title h1 {
+    font-family: 'Lora', serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+/* Bara de căutare */
+.search-bar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 20px;
+    min-width: 200px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #fff;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: #7380C7;
+}
+
+/* Meniul de navigare */
+.main-menu {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Submeniu */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #f0f0f0; 
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); 
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item:hover .submenu,
+.submenu:hover {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333; 
+    font-size: 0.9rem; 
+    text-decoration: none;
+    transition: background-color 0.3s, padding-left 0.3s;
+    border-radius: 6px;
+}
+
+.submenu li a:hover {
+    background-color: #e0e0e0; 
+    padding-left: 20px;
+}
+
+.nav-item:hover .submenu {
+    display: flex;
+}
+
+/* ----- Responsive: Hamburger Menu ----- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #ecf0f1;
+    cursor: pointer;
+}
+  
+@media (max-width: 768px) {
+    .main-menu {
+      display: none;
+      width: 100%;
+      background-color: #2c3e50;
+    }
+  
+    .main-menu.active {
+      display: block;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0;
+    }
+  
+    .nav-item {
+      width: 100%;
+      text-align: center;
+      margin: 5px 0;
+    }
+
+    .submenu {
+      position: static;
+      transform: none;
+      box-shadow: none;
+      width: 100%;
+      border-radius: 0;
+      padding: 0;
+      display: none;
+    }
+
+    .submenu li {
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    .submenu li a {
+      justify-content: center;
+      padding: 10px 0;
+      border-radius: 0;
+    }
+
+    .nav-item:hover .submenu {
+      display: none; 
+    }
+
+    .nav-item.active .submenu {
+      display: block;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .search-bar {
+      order: 3;
+      width: 100%;
+      margin-top: 10px;
+    }
+}
+  
+/* ----- Animație pentru logo la hover ----- */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+  
+.logo-link img {
+    transition: transform 0.5s ease;
+}
+  
+.logo-link:hover img {
+    transform: rotate(10deg) scale(1.1);
+}
+
+
+  
+
+
+/* ----- MAIN CONTENT ----- */
+
+/* Main container */
+.main-content {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Secțiunea de întâmpinare */
+.welcome-section {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #7380C7;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Secțiunea cu parfumuri */
+.popular-perfumes {
+    flex: 2;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card parfum */
+.perfume-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.perfume-card:hover {
+    transform: translateY(-5px);
+}
+
+.perfume-card h3 {
+    color: #7380C7;
+}
+
+.perfume-card img {
+    width: 120px;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
+
+.description {
+    font-style: italic;
+}
+
+
+/* Review */
+.reviews {
+    flex: 1;
+    background: #9BAACC;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.reviews h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#reviewForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #f4f5ff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#reviewForm input,
+#reviewForm select,
+#reviewForm button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    flex: 1 1 150px;
+}
+
+#reviewForm button {
+    background-color: #5e6dbf;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex: 1 1 120px;
+}
+
+#reviewForm button:hover {
+    background-color: #4651a3;
+}
+
+.reviews table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.reviews thead {
+    background: #5e6dbf;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.reviews th,
+.reviews td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    vertical-align: top;
+}
+
+.reviews th {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    padding-right: 32px;
+    transition: background-color 0.2s ease;
+}
+
+.reviews th:hover {
+    background-color: #4754a6;
+}
+
+.reviews th i {
+    margin-right: 8px;
+}
+
+.reviews th.sort-asc::after {
+    content: " \f0de";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+}
+
+.reviews th.sort-desc::after {
+    content: " \f0dd";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+}
+
+.reviews tbody tr:hover {
+    background-color: #f0f3ff;
+}
+
+.reviews tbody td {
+    font-size: 15px;
+}
+
+
+
+
+/* image slider */
+
+.image-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.large-image {
+    position: relative;
+    width: 250px; /* Am redus dimensiunea imaginii mari */
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.large-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evită deformările imaginii */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#img1:checked ~ .images img:nth-child(1),
+#img2:checked ~ .images img:nth-child(2),
+#img3:checked ~ .images img:nth-child(3) {
+    opacity: 1;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.thumbnails label {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.thumbnails img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.thumbnails label:hover, 
+.thumbnails input:checked + label {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* slider controls */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.slider-controls label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1em;
+}
+
+#playPauseBtn {
+    background-color: #7380C7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+#playPauseBtn:hover {
+    background-color: #5f6f99;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin: 0;
+}
+
+select {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+
+/* readmore functionality */
+#dynamic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 60%;
+    max-width: 600px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+.list-item {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    /* background-color: #f1f1f1; */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.list-item.visible {
+    display: block;
+    opacity: 1;
+}
+
+.list-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #7380C7;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+.list-buttons {
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px; 
+}
+
+.list-buttons button {
+    background-color: #7380C7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.list-buttons button:hover {
+    background-color: #5c6bb7;
+}
+
+
+
+
+/* ----- LOGIN ----- */
+
+/* Container login */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    padding: 20px;
+}
+
+/* Containerul principal al formularului de login */
+.login-container {
+    background: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+/* Titlu */
+.login-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* Formular */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.login-fieldset {
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+/* Etichete și inputuri */
+.login-label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+}
+
+/* Buton */
+.login-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-button:hover {
+    background: #2980b9;
+}
+
+/* Link-uri */
+.login-links {
+    margin-top: 15px;
+}
+
+.link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* Trecerea la un font modern și lizibil */
+input[type="email"], input[type="password"] {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Butonul pentru submit */
+input[type="submit"] {
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #3498db; 
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9; 
+}
+
+
+
+
+
+
+
+/* ----- SIGNUP ----- */
+
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    padding: 20px;
+    font-family: 'Lora', serif;
+}
+
+.signup-container {
+    background: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+/* Titlu */
+.signup-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+/* Formular */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.signup-fieldset {
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.signup-legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Etichete și inputuri */
+.signup-label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+.signup-input,
+.signup-select,
+.signup-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-input:focus,
+.signup-select:focus,
+.signup-textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+}
+
+/* Select */
+.signup-select {
+    height: auto;
+}
+
+/* Textarea */
+.signup-textarea {
+    resize: vertical;
+}
+
+/* GENDER section actualizată */
+.gender-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.signup-radio {
+    display: none;
+}
+
+.signup-radio-label {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #34495e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.signup-radio-label i {
+    font-size: 1.3em;
+    margin-bottom: 6px;
+    color: #3498db;
+}
+
+.signup-radio-label:hover {
+    border-color: #3498db;
+    background-color: #f0f8ff;
+}
+
+.signup-radio:checked + .signup-radio-label {
+    border-color: #3498db;
+    background-color: #e6f0fa;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    color: #2c3e50;
+}
+
+/* Termeni și condiții */
+.signup-terms {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.95em;
+}
+
+.signup-checkbox {
+    margin-right: 5px;
+}
+
+/* Buton */
+.signup-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+.signup-button:hover {
+    background: #2980b9;
+}
+
+/* Aside */
+.signup-aside {
+    margin-top: 20px;
+    font-size: 0.95em;
+}
+
+.signup-aside-title {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.signup-aside-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-aside-link:hover {
+    text-decoration: underline;
+}
+
+.signup-terms a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+.signup-label:focus-within {
+    color: #3498db;
+}
+
+/* Indicatori de validare */
+.validation-indicator {
+    display: block;
+    height: 4px;
+    margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .gender-options {
+        grid-template-columns: 1fr;
+    }
+
+    .signup-container {
+        padding: 20px;
+    }
+
+    .signup-button {
+        font-size: 0.95em;
+    }
+
+    .signup-title {
+        font-size: 1.5em;
+    }
+}
+
+
+
+
+
+
+/* ----- PRODUCTS ----- */
+
+.product-page-container {
+    max-width: 1200px; /* Lățime maximă pentru container */
+    margin: 0 auto; /* Centrare pe orizontală */
+    padding: 20px; /* Spațiu intern */
+}
+
+/* Titluri secțiuni */
+.section-title {
+    width: 100%;
+    text-align: center;
+}
+
+/* Lista parfumurilor */
+.parfum-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Card parfum */
+.parfum-item {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: calc(50% - 20px);
+    text-align: center;
+}
+
+/* Imagine parfum */
+.parfum-img {
+    width: 120px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Tabel cu informații despre parfum */
+.parfum-table, .notes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.parfum-table th, .parfum-table td,
+.notes-table th, .notes-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.parfum-table th {
+    background-color: #4a69bd;
+    color: white;
+}
+
+.notes-table th {
+    background-color: #82ccdd;
+    color: white;
+}
+
+.parfum-type {
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.btn {
+    background-color: #38ada9;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #218c74;
+}
+
+.availability-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.availability-table th, .availability-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.availability-table th {
+    background-color: #b71540;
+    color: white;
+}
+
+.availability-table td {
+    font-weight: bold;
+}
+
+
+.parfum-img-container {
+    position: relative;
+}
+
+.parfum-info-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    color: white;
+    display: none;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.parfum-img-container:hover .parfum-info-hover {
+    display: block; 
+}
+
+
+
+
+
+/* ----- FOOTER ----- */
+
+footer {
+    background-color: #7380C7;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+/* ----- MEDIA QUERIES ----- */
+
+/* Ecrane mici (telefoane) */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    .main-content {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .popular-perfumes,
+    .reviews {
+        flex: 1;
+        margin-bottom: 20px;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+
+    .image-slider {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .large-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .thumbnails label {
+        padding: 3px;
+    }
+
+    .thumbnails img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .login-container, .signup-container {
+        width: 90%;
+        margin: 20px;
+    }
+
+    .signup-input, .signup-select, .signup-textarea, .login-input {
+        width: 100%;
+    }
+
+    .nav-link i {
+        font-size: 1rem;
+    }
+}
+
+/* Ecrane medii (tablete) */
+@media only screen and (max-width: 1024px) {
+    .main-content {
+        width: 90%;
+    }
+
+    .popular-perfumes,
+    .reviews {
+        flex: 1;
+    }
+
+    .image-slider {
+        flex-direction: row;
+    }
+
+    .large-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .thumbnails label {
+        padding: 5px;
+    }
+
+    .thumbnails img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .nav-item {
+        margin: 0 15px;
+    }
+
+    .nav-link i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Ecrane mari (desktopuri) */
+@media only screen and (min-width: 1025px) {
+    .main-content {
+        width: 80%;
+    }
+
+    .nav-list {
+        justify-content: center;
+    }
+
+    .image-slider {
+        flex-direction: column;
+    }
+
+    .large-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .thumbnails img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+
+
