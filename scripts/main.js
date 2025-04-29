@@ -200,4 +200,16 @@ navItems.forEach(item => {
   });
 });
 
+// functie de actualizare a anului din footer
+function updateFooterYear() {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+}
+
+// Apelează funcția când pagina este încărcată
+document.addEventListener('DOMContentLoaded', updateFooterYear);
+
+
 
