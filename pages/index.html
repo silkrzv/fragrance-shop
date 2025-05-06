@@ -50,40 +50,51 @@
             </p>
         </section>
 
-        <section class="image-slider">
-            <div class="large-image">
-                <input type="radio" name="slider" id="img1" checked>
-                <input type="radio" name="slider" id="img2">
-                <input type="radio" name="slider" id="img3">
-        
-                <div class="images">
-                    <img src="../images/chanel_no5.jpg" alt="Chanel No 5">
-                    <img src="../images/dior_hintense.jpg" alt="Dior Hintense">
-                    <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage">
+        <section id="custom-slider-section">
+          <div class="slider-controls">
+            <label for="slider-count">Imagini/videouri vizibile:</label>
+            <input type="number" id="slider-count" min="1" max="5" value="1" class="modern-input">
+            <label for="slider-interval">Interval (secunde):</label>
+            <input type="number" id="slider-interval" min="1" max="10" value="3" class="modern-input">
+          </div>
+          <div id="custom-slider">
+            <button class="slider-arrow slider-arrow-left"><i class="fa fa-chevron-left"></i></button>
+            <div class="slider-wrapper">
+              <div class="slider-items">
+                <div class="slider-item">
+                  <img src="/images/chanel_no5.jpg" alt="Chanel No 5">
+                  <div class="slider-content">
+                    <h2>CHANEL NO. 5</h2>
+                  </div>
                 </div>
+                <div class="slider-item">
+                  <img src="/images/dior_hintense.jpg" alt="Dior Hintense">
+                  <div class="slider-content">
+                    <h2>DIOR HOMME INTENSE</h2>
+                  </div>
+                </div>
+                <div class="slider-item">
+                  <img src="/images/dior_sauvage.jpg" alt="Dior Sauvage">
+                  <div class="slider-content">
+                    <h2>DIOR SAUVAGE</h2>
+                  </div>
+                </div>
+                <div class="slider-item">
+                  <video src="/images/sample.mp4" poster="/images/dior_sauvage.jpg" muted></video>
+                  <div class="slider-content">
+                    <h2>VERSACE</h2>
+                  </div>
+                </div>
+              </div>
             </div>
-        
-            <div class="thumbnails">
-                <label for="img1"><img src="../images/chanel_no5.jpg" alt="Thumbnail 1"></label>
-                <label for="img2"><img src="../images/dior_hintense.jpg" alt="Thumbnail 2"></label>
-                <label for="img3"><img src="../images/dior_sauvage.jpg" alt="Thumbnail 3"></label>
-            </div>
-
-            <!-- Controls -->
-            <div class="slider-controls">
-                <button id="playPauseBtn">Play</button>
-                <label for="repeatCheckbox">
-                    <input type="checkbox" id="repeatCheckbox"> Repetă
-                </label>
-                <label for="intervalSelect">Interval:</label>
-                <select id="intervalSelect">
-                    <option value="1000">1 sec</option>
-                    <option value="2000">2 sec</option>
-                    <option value="3000">3 sec</option>
-                    <option value="5000">5 sec</option>
-                </select>
-            </div>
+            <button class="slider-arrow slider-arrow-right"><i class="fa fa-chevron-right"></i></button>
+            <div class="slider-dots"></div>
+          </div>
         </section>
+        
+        
+        
+        
     
         <section class="popular-perfumes">
             <h2 style="font-family: 'Merriweather', serif; font-size: 1.8em; color: #444; margin-bottom: 15px;">
@@ -277,6 +288,7 @@
       </div>
     </footer>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/scripts/main.js"></script>
 </body>
 </html>

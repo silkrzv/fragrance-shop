@@ -438,118 +438,6 @@ header {
 
 
 
-/* image slider */
-
-.image-slider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.large-image {
-    position: relative;
-    width: 250px; /* Am redus dimensiunea imaginii mari */
-    height: 250px;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.large-image img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Evită deformările imaginii */
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    border-radius: 10px;
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-#img1:checked ~ .images img:nth-child(1),
-#img2:checked ~ .images img:nth-child(2),
-#img3:checked ~ .images img:nth-child(3) {
-    opacity: 1;
-}
-
-.thumbnails {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.thumbnails label {
-    display: inline-block;
-    padding: 5px;
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.thumbnails img {
-    width: 55px;
-    height: 55px;
-    object-fit: cover; 
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.thumbnails label:hover, 
-.thumbnails input:checked + label {
-    transform: scale(1.1);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* slider controls */
-.slider-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.slider-controls label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 1em;
-}
-
-#playPauseBtn {
-    background-color: #7380C7;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s;
-}
-
-#playPauseBtn:hover {
-    background-color: #5f6f99;
-}
-
-input[type="checkbox"] {
-    transform: scale(1.2);
-    margin: 0;
-}
-
-select {
-    padding: 5px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-
 /* readmore functionality */
 #dynamic-list {
     list-style: none;
@@ -560,13 +448,10 @@ select {
     font-family: 'Open Sans', sans-serif;
 }
 
-
-
 .list-item {
     display: none;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
-    /* background-color: #f1f1f1; */
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -609,6 +494,160 @@ select {
 }
 
 
+/* custom slider section */
+
+
+#custom-slider-section {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slider-controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 10px auto;
+  }
+  
+  #custom-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .slider-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slider-items {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    will-change: transform;
+  }
+  
+  .slider-item {
+    flex: 0 0 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .slider-item img, 
+  .slider-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .slider-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .slider-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 3px;
+  }
+  
+  /* Îmbunătățiri pentru butoanele de navigare */
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.6); /* Fundal mai închis */
+    color: #fff;
+    border: none;
+    width: 60px; /* Mai mare */
+    height: 60px; /* Mai mare */
+    border-radius: 50%;
+    font-size: 1.7rem; /* Text mai mare */
+    display: flex !important; /* Mereu vizibil */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1 !important; /* Mereu vizibil */
+    visibility: visible !important; /* Mereu vizibil */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Umbră pentru vizibilitate */
+  }
+  
+  .slider-arrow:hover {
+    background: rgba(0,0,0,0.8); /* Mai închis la hover */
+    transform: translateY(-50%) scale(1.1); /* Puțin mai mare la hover */
+  }
+  
+  .slider-arrow-left {
+    left: 20px;
+  }
+  
+  .slider-arrow-right {
+    right: 20px;
+  }
+  
+  .slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .slider-dot.active {
+    background: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .slider-content h2 {
+      font-size: 2rem;
+    }
+    
+    .slider-arrow {
+      width: 45px;
+      height: 45px;
+      font-size: 1.4rem;
+    }
+  }
+  
+  
+  
 
 
 /* ----- LOGIN ----- */
@@ -1060,51 +1099,223 @@ input[type="submit"]:hover {
     background-color: #218c74;
 }
 
-.availability-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.availability-table th, .availability-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-.availability-table th {
-    background-color: #b71540;
-    color: white;
-}
-
-.availability-table td {
-    font-weight: bold;
-}
-
-
 .parfum-img-container {
     position: relative;
 }
 
-.parfum-info-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); 
-    color: white;
+
+/* stiluri pt structura de tab-uri */
+.product-tabs-section {
+    margin: 24px 0 0 0;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(80,80,120,0.06);
+    padding: 18px 12px 22px 12px;
+    max-width: 100%;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 12px;
+    border-bottom: 2px solid #e1e1e1;
+    margin-bottom: 0;
+  }
+  
+  .tab-btn {
+    background: #f8f8f8;
+    color: #888;
+    border: none;
+    border-bottom: 4px solid transparent;
+    padding: 10px 18px 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 8px 8px 0 0;
+    outline: none;
+  }
+  
+  .tab-btn.active,
+  .tab-btn:focus {
+    background: #7bb7a4;
+    color: #fff;
+    border-bottom: 4px solid #7bb7a4;
+  }
+  
+  .tab-content-wrapper {
+    background: #fff;
+    border-radius: 0 0 8px 8px;
+    min-height: 80px;
+    border: 1.5px solid #e1e1e1;
+    border-top: none;
+    padding: 18px 12px;
+    font-size: 1.05rem;
+    color: #888;
+    box-shadow: 0 2px 10px rgba(80,80,120,0.03);
+  }
+  
+  .tab-content {
     display: none;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-}
+    animation: fadeInTab 0.4s;
+  }
+  .tab-content.active {
+    display: block;
+  }
 
-.parfum-img-container:hover .parfum-info-hover {
-    display: block; 
-}
+  .tab-title {
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  
+  .parfum-notes {
+    margin: 14px 0 0 0;
+    padding: 0 0 0 18px;
+    color: #444;
+    font-size: 1.01rem;
+  }
+  .parfum-notes li {
+    margin-bottom: 4px;
+  }
+  
+  .tab-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0 0 0;
+  }
+  .tab-spec-row {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e1e1e1;
+    font-size: 1.07rem;
+  }
+  .tab-spec-row:last-child {
+    border-bottom: none;
+  }
+  .tab-spec-label {
+    min-width: 140px;
+    color: #38ada9;
+    font-weight: 600;
+    margin-right: 14px;
+    letter-spacing: 0.3px;
+    font-family: 'Lora', serif;
+  }
+  
+  .tab-recomandari {
+    padding: 8px 0 0 0;
+  }
+  .tab-recomandari h4 {
+    color: #38ada9;
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .tab-recomandari ul {
+    margin: 0 0 10px 18px;
+    padding: 0;
+    color: #444;
+  }
+  .tab-recomandari li {
+    margin-bottom: 4px;
+    font-size: 1.01rem;
+  }
+  .tab-review {
+    background: #f4f7fa;
+    border-left: 4px solid #38ada9;
+    padding: 10px 14px;
+    color: #555;
+    font-style: italic;
+    font-size: 1.01rem;
+    margin-top: 10px;
+    border-radius: 0 8px 8px 0;
+  }
+  
+  @keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: none;}
+  }
+  
+/* stil pt disponibilitate parfumuri */
 
+.parfum-availability-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #38ada9;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  
+  .parfum-availability-inline .fa-check-circle {
+    color: green;
+  }
+  
+  .parfum-availability-inline .fa-exclamation-circle {
+    color: orange;
+  }
 
+/* stil pt pop-up imagini */
+
+#popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(40,40,40,0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: background 0.2s;
+  }
+  
+  #popup-inner {
+    position: relative;
+    max-width: 98vw;
+    max-height: 98vh;
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  
+  #popup-inner img, #popup-inner video {
+    width: 100%;
+    height: auto;
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    background: #111;
+  }
+  
+  #popup-close {
+    position: absolute;
+    top: 10px; right: 18px;
+    font-size: 2.2rem;
+    color: #317cee;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 10;
+    transition: color 0.2s;
+  }
+  #popup-close:hover { color: #0848a8; }
+  
+  @media (max-width: 700px) {
+    #popup-inner img, #popup-inner video {
+      max-width: 98vw;
+      max-height: 60vh;
+    }
+  }
+  
+  
+  
 
 
 
