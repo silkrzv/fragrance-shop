@@ -364,22 +364,42 @@ $(function() {
 
 // functionalitate 3 jQuery - pop-up imagine
 $(function() {
-  // Ascunde popup la start
+  // Ascunde popup-ul la început
   $('#popup-overlay').hide();
 
-  // Click pe orice imagine cu clasa parfum-img
-  $('body').on('click', '.parfum-img', function() {
-    // Clonează imaginea fără a păstra dimensiunile fixe
-    var $img = $(this).clone().removeAttr('width').removeAttr('height');
+  // Funcție comună pentru afișarea unui element (imagine sau video) în popup
+  function showInPopup($element) {
     // Curăță conținutul anterior
     $('#popup-inner').find('img, video').remove();
-    // Adaugă imaginea clonată în popup
-    $('#popup-inner').append($img);
-    // Arată popup-ul
+
+    let $clone;
+
+    if ($element.is('video')) {
+      $clone = $element.clone().removeAttr('width height controls muted autoplay');
+      $clone.attr({
+        controls: true,
+        autoplay: true
+      });
+    } else {
+      $clone = $element.clone().removeAttr('width height');
+    }
+
+    $('#popup-inner').append($clone);
     $('#popup-overlay').fadeIn(200);
+  }
+
+  // Click pe .parfum-img (funcționalitatea veche)
+  $('body').on('click', '.parfum-img', function() {
+    showInPopup($(this));
   });
 
-  // Închide popup la click pe X sau pe fundal
+  // Click pe img sau video din slider (funcționalitatea nouă)
+  $('body').on('click', '#custom-slider .slider-item img, #custom-slider .slider-item video', function(e) {
+    e.preventDefault(); // prevenim comportamentul implicit (ex: autoplay blocat)
+    showInPopup($(this));
+  });
+
+  // Închide popup-ul la click pe fundal sau pe X
   $('#popup-close, #popup-overlay').on('click', function(e) {
     if (e.target.id === 'popup-overlay' || e.target.id === 'popup-close') {
       $('#popup-overlay').fadeOut(200, function() {
@@ -388,11 +408,12 @@ $(function() {
     }
   });
 
-  // Previne închiderea la click pe conținutul popup-ului
+  // Previne închiderea când se face click pe conținutul popup-ului
   $('#popup-inner').on('click', function(e) {
     e.stopPropagation();
   });
 });
+
 
 
   
