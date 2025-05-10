@@ -8,37 +8,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-          <div class="logo-title">
-            <a href="index.html" class="logo-link">
-              <img src="../images/logo.png" alt="Fragrance Shop Logo" width="80" height="80">
-              <h1>Fragrance Shop</h1>
-            </a>
-          </div>
-          <div class="search-bar">
-            <input type="text" placeholder="Caută parfumuri, accesorii...">
-            <button type="submit"><i class="fas fa-search"></i></button>
-          </div>
-          <button class="menu-toggle" id="menu-toggle">
-            <i class="fas fa-bars"></i>
+  <header>
+    <div class="header-container">
+      <div class="logo-title">
+        <a href="index.html" class="logo-link">
+          <img src="../images/logo.png" alt="Fragrance Shop Logo" width="60" height="60">
+          <h1>Fragrance Shop</h1>
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Caută parfumuri, accesorii...">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <!-- Acțiuni rapide -->
+      <div class="header-actions">
+        <!-- Dacă userul NU este logat -->
+        <a href="login.html" class="header-action" title="Autentificare"><i class="fas fa-user"></i></a>
+        <a href="wishlist.html" class="header-action" title="Favorite"><i class="fas fa-heart"></i></a>
+        <a href="cart.html" class="header-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>
+            <span class="cart-amount">0,00 lei</span><br>
+            <span class="cart-count">0 Produsul</span>
+          </span>
+        </a>
+        <!-- Dacă userul ESTE logat -->
+        <!--
+        <div class="user-dropdown">
+          <button class="header-action user-btn" title="Contul meu">
+            <i class="fas fa-user-circle"></i>
           </button>
-          <nav class="main-menu" id="main-menu">
-            <ul class="nav-list">
-              <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
-              <li class="nav-item"><a href="login.html" class="nav-link"><i class="fas fa-sign-in-alt"></i> Autentificare</a></li>
-              <li class="nav-item"><a href="signup.html" class="nav-link"><i class="fas fa-user-plus"></i> Înregistrare</a></li>
-              <li class="nav-item">
-                <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
-                <ul class="submenu">
-                  <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
-                  <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
-                </ul>
-              </li>
-            </ul>
-          </nav>
+          <ul class="user-menu">
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
+            <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
+            <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          </ul>
         </div>
-      </header>
+        <a href="cart.html" class="header-cart"> ... </a>
+        -->
+      </div>
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
+          <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
+            <ul class="submenu">
+              <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
+              <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="offers.html" class="nav-link"><i class="fas fa-tags"></i> Oferte</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
       
     <main class="main-content">
       <!-- Welcome section -->

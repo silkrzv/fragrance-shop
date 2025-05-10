@@ -82,10 +82,11 @@ header {
 
 /* Meniul de navigare */
 .main-menu {
-    background: none;
-    padding: 0;
-    box-shadow: none;
-    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    order: 3; /* asigură plasarea sub celelalte elemente în flex-wrap */
 }
 
 .nav-list {
@@ -94,6 +95,7 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 
 .nav-item {
@@ -255,6 +257,151 @@ header {
   
 .logo-link:hover img {
     transform: rotate(10deg) scale(1.1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-left: 18px;
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    color: #7b88d1;
+    font-size: 1.3rem;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(80,80,120,0.07);
+    position: relative;
+    text-decoration: none;
+}
+.header-action:hover,
+.user-btn:hover {
+    background: #e6eaff;
+    color: #38ada9;
+}
+
+.header-cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #a184c7;
+    color: #fff;
+    border-radius: 22px;
+    padding: 7px 22px 7px 14px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(80,80,120,0.07);
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+    min-width: 130px;
+}
+.header-cart:hover {
+    background: #7b88d1;
+    color: #fff;
+    box-shadow: 0 4px 18px rgba(80,80,120,0.13);
+}
+.header-cart i {
+    font-size: 1.35rem;
+    margin-right: 8px;
+}
+.header-cart span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.97rem;
+    line-height: 1.1;
+}
+.cart-amount {
+    font-weight: 700;
+    font-size: 1.07rem;
+}
+.cart-count {
+    font-size: 0.96rem;
+    color: #edeaf6;
+}
+
+/* User dropdown pentru user logat */
+.user-dropdown {
+    position: relative;
+}
+.user-btn {
+    background: #fff;
+    color: #7b88d1;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(80,80,120,0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-menu {
+    display: none;
+    position: absolute;
+    top: 44px;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(80,80,120,0.13);
+    min-width: 170px;
+    z-index: 1000;
+    padding: 8px 0;
+}
+.user-dropdown:hover .user-menu,
+.user-btn:focus + .user-menu {
+    display: block;
+}
+.user-menu li {
+    list-style: none;
+}
+.user-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    color: #7380C7;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+.user-menu li a:hover {
+    background: #e6eaff;
+    color: #38ada9;
+}
+
+@media (max-width: 900px) {
+    .header-actions {
+        gap: 10px;
+        margin-left: 6px;
+    }
+    .header-cart {
+        padding: 7px 10px 7px 10px;
+        min-width: 100px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .header-actions {
+        order: 4;
+        margin: 10px 0 0 0;
+        width: 100%;
+        justify-content: center;
+    }
+    .header-cart {
+        margin-left: 6px;
+    }
 }
 
 
@@ -805,35 +952,37 @@ header {
 
 /* ----- LOGIN ----- */
 
-/* Container login */
-.login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(to right, #e3f2fd, #ffffff);
-    padding: 20px;
-}
 
-/* Containerul principal al formularului de login */
 .login-container {
-    background: #fefefe;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    padding: 32px 28px 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(80,80,120,0.11);
     width: 100%;
     max-width: 400px;
     text-align: center;
     font-family: 'Lora', serif;
 }
 
+.login-page {
+    min-height: calc(100vh - 120px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+
+
 /* Titlu */
 .login-title {
-    color: #2c3e50;
+    color: #7380C7;
     margin-bottom: 20px;
     font-size: 1.8em;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 /* Formular */
@@ -856,84 +1005,89 @@ header {
     display: block;
     text-align: left;
     margin: 10px 0 5px;
-    font-weight: bold;
-    color: #34495e;
+    font-weight: 600;
+    color: #555;
+    font-size: 1.05em;
 }
 
 .login-input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1.5px solid #e6eaff;
+    border-radius: 10px;
     font-size: 1rem;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f7f8fc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 2px;
 }
 
 .login-input:focus {
-    border-color: #3498db;
+    border-color: #7380C7;
     outline: none;
-    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+    box-shadow: 0 0 8px #a184c722;
 }
 
 /* Buton */
-.login-button {
-    background: #3498db;
+.login-button,
+input[type="submit"] {
+    background: linear-gradient(90deg, #7380C7 0%, #a184c7 100%);
     color: white;
     border: none;
-    padding: 12px 24px;
-    font-size: 1em;
-    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.08em;
+    border-radius: 22px;
     margin-top: 20px;
+    width: 100%;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(80,80,120,0.07);
 }
 
-.login-button:hover {
-    background: #2980b9;
+.login-button:hover,
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #a184c7 0%, #7380C7 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 18px rgba(80,80,120,0.13);
 }
 
 /* Link-uri */
 .login-links {
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .link {
-    color: #3498db;
+    color: #7380C7;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
 .link:hover {
     text-decoration: underline;
-    color: #2980b9;
+    color: #a184c7;
 }
 
-/* Trecerea la un font modern și lizibil */
-input[type="email"], input[type="password"] {
-    padding: 12px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 100%;
-    background-color: #fff;
+.login-links h3 {
+    font-size: 1.08em;
+    color: #555;
+    font-weight: 500;
+    margin-top: 16px;
 }
 
-/* Butonul pentru submit */
-input[type="submit"] {
-    padding: 12px;
-    font-size: 1.1rem;
-    background-color: #3498db; 
-    border: none;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 18px 6vw 16px 6vw;
+        max-width: 98vw;
+    }
+    .login-title {
+        font-size: 1.2em;
+    }
 }
 
-input[type="submit"]:hover {
-    background-color: #2980b9; 
-}
 
 
 
@@ -949,16 +1103,16 @@ input[type="submit"]:hover {
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(to right, #e3f2fd, #ffffff);
+    background: linear-gradient(to right, #e3f2fd, #ffffff); /* păstrat */
     padding: 20px;
     font-family: 'Lora', serif;
 }
 
 .signup-container {
-    background: #fefefe;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #fff; /* alb curat, ca pe restul site-ului */
+    padding: 32px 28px 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(80,80,120,0.11);
     width: 100%;
     max-width: 550px;
     text-align: center;
@@ -966,10 +1120,11 @@ input[type="submit"]:hover {
 
 /* Titlu */
 .signup-title {
-    color: #2c3e50;
+    color: #7380C7; /* mov-albăstrui */
     margin-bottom: 20px;
     font-size: 1.8em;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 /* Formular */
@@ -989,8 +1144,8 @@ input[type="submit"]:hover {
 
 .signup-legend {
     font-size: 1.2em;
-    font-weight: bold;
-    color: #34495e;
+    font-weight: 700;
+    color: #555;
     margin-bottom: 10px;
     text-align: left;
 }
@@ -1000,8 +1155,9 @@ input[type="submit"]:hover {
     display: block;
     text-align: left;
     margin: 10px 0 5px;
-    font-weight: bold;
-    color: #34495e;
+    font-weight: 600;
+    color: #555;
+    font-size: 1.05em;
 }
 
 .signup-input,
@@ -1009,19 +1165,22 @@ input[type="submit"]:hover {
 .signup-textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1.5px solid #e6eaff; /* border pastel */
+    border-radius: 12px;
     font-size: 1rem;
-    background-color: #fff;
+    background-color: #f7f8fc; /* fundal deschis */
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 8px;
 }
 
 .signup-input:focus,
 .signup-select:focus,
 .signup-textarea:focus {
-    border-color: #3498db;
+    border-color: #7380C7; /* accent mov */
     outline: none;
-    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+    box-shadow: 0 0 8px rgba(115,128,199,0.3);
 }
 
 /* Select */
@@ -1034,7 +1193,7 @@ input[type="submit"]:hover {
     resize: vertical;
 }
 
-/* GENDER section actualizată */
+/* GENDER section */
 .gender-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1049,36 +1208,36 @@ input[type="submit"]:hover {
 
 .signup-radio-label {
     padding: 12px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    border: 2px solid #e6eaff;
+    border-radius: 14px;
     background-color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-weight: 500;
-    color: #34495e;
+    font-weight: 600;
+    color: #555;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 0.9em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(80,80,120,0.06);
 }
 
 .signup-radio-label i {
-    font-size: 1.3em;
+    font-size: 1.4em;
     margin-bottom: 6px;
-    color: #3498db;
+    color: #7380C7;
 }
 
 .signup-radio-label:hover {
-    border-color: #3498db;
-    background-color: #f0f8ff;
+    border-color: #7380C7;
+    background-color: #f0f4ff;
 }
 
 .signup-radio:checked + .signup-radio-label {
-    border-color: #3498db;
-    background-color: #e6f0fa;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    border-color: #7380C7;
+    background-color: #e6eaff;
+    box-shadow: 0 0 12px rgba(115,128,199,0.4);
     color: #2c3e50;
 }
 
@@ -1087,57 +1246,77 @@ input[type="submit"]:hover {
     margin-top: 10px;
     text-align: center;
     font-size: 0.95em;
+    color: #555;
 }
 
 .signup-checkbox {
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 /* Buton */
 .signup-button {
-    background: #3498db;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #7380C7 0%, #a184c7 100%);
+    color: #fff;
     border: none;
-    padding: 12px 24px;
-    font-size: 1em;
-    border-radius: 8px;
+    padding: 14px 36px;
+    font-size: 1.13em;
+    font-weight: 700;
+    border-radius: 28px;
     margin-top: 20px;
+    width: auto;
+    min-width: 180px;
+    min-height: 48px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    box-shadow: 0 2px 12px rgba(80,80,120,0.08);
+    transition: background 0.3s, transform 0.18s;
+}
+
+.signup-button i {
+    font-size: 1.15em;
+    margin-right: 7px;
 }
 
 .signup-button:hover {
-    background: #2980b9;
+    background: linear-gradient(90deg, #a184c7 0%, #7380C7 100%);
+    transform: translateY(-2px) scale(1.04);
 }
+
 
 /* Aside */
 .signup-aside {
     margin-top: 20px;
     font-size: 0.95em;
+    color: #555;
 }
 
 .signup-aside-title {
     margin-bottom: 10px;
-    color: #2c3e50;
+    color: #444;
 }
 
 .signup-aside-link {
-    color: #3498db;
+    color: #7380C7;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
 .signup-aside-link:hover {
     text-decoration: underline;
+    color: #a184c7;
 }
 
 .signup-terms a:hover {
     text-decoration: underline;
-    color: #2980b9;
+    color: #a184c7;
 }
 
 .signup-label:focus-within {
-    color: #3498db;
+    color: #7380C7;
 }
 
 /* Indicatori de validare */
@@ -1154,17 +1333,19 @@ input[type="submit"]:hover {
     }
 
     .signup-container {
-        padding: 20px;
+        padding: 20px 6vw;
+        max-width: 98vw;
     }
 
     .signup-button {
-        font-size: 0.95em;
+        font-size: 1em;
     }
 
     .signup-title {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 }
+
 
 
 
@@ -1174,15 +1355,20 @@ input[type="submit"]:hover {
 /* ----- PRODUCTS ----- */
 
 .product-page-container {
-    max-width: 1200px; /* Lățime maximă pentru container */
-    margin: 0 auto; /* Centrare pe orizontală */
-    padding: 20px; /* Spațiu intern */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    font-family: 'Lora', serif;
 }
 
 /* Titluri secțiuni */
 .section-title {
     width: 100%;
     text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4a4a7a;
+    margin-bottom: 30px;
 }
 
 /* Lista parfumurilor */
@@ -1190,228 +1376,260 @@ input[type="submit"]:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
 }
 
 /* Card parfum */
 .parfum-item {
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px 18px;
+    box-shadow: 0 6px 32px rgba(80,80,120,0.08);
     width: calc(50% - 20px);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+.parfum-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56,173,169,0.08);
 }
 
 /* Imagine parfum */
 .parfum-img {
-    width: 120px;
+    width: 140px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    box-shadow: 0 3px 12px rgba(80,80,120,0.06);
 }
 
 /* Tabel cu informații despre parfum */
 .parfum-table, .notes-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .parfum-table th, .parfum-table td,
 .notes-table th, .notes-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #d6d6ea;
+    padding: 10px 12px;
 }
 
 .parfum-table th {
-    background-color: #4a69bd;
+    background-color: #7380C7;
     color: white;
+    font-weight: 700;
 }
 
 .notes-table th {
-    background-color: #82ccdd;
+    background-color: #a184c7;
     color: white;
+    font-weight: 700;
 }
 
 .parfum-type {
     font-style: italic;
-    margin: 10px 0;
+    margin: 14px 0 10px 0;
+    color: #666;
+    font-size: 1rem;
 }
 
+/* Buton */
 .btn {
-    background-color: #38ada9;
+    background: linear-gradient(90deg, #38ada9 0%, #5e6dbf 100%);
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
+    border-radius: 22px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 2px 10px rgba(56,173,169,0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 14px;
+    display: inline-block;
 }
 
 .btn:hover {
-    background-color: #218c74;
+    background: linear-gradient(90deg, #5e6dbf 0%, #38ada9 100%);
+    transform: translateY(-2px);
 }
 
+/* Container imagine */
 .parfum-img-container {
     position: relative;
 }
 
-
-/* stiluri pt structura de tab-uri */
+/* Tab-uri produse */
 .product-tabs-section {
-    margin: 24px 0 0 0;
-    background: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(80,80,120,0.06);
-    padding: 18px 12px 22px 12px;
+    margin: 32px 0 0 0;
+    background: #f7f9fc;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(80,80,120,0.08);
+    padding: 22px 18px 28px 18px;
     max-width: 100%;
-  }
-  
-  .tabs {
+}
+
+.tabs {
     display: flex;
-    gap: 12px;
-    border-bottom: 2px solid #e1e1e1;
+    gap: 16px;
+    border-bottom: 2px solid #d6d6ea;
     margin-bottom: 0;
-  }
-  
-  .tab-btn {
-    background: #f8f8f8;
-    color: #888;
+}
+
+.tab-btn {
+    background: #f7f9fc;
+    color: #7b7b9a;
     border: none;
     border-bottom: 4px solid transparent;
-    padding: 10px 18px 8px 18px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 8px 8px 0 0;
-    outline: none;
-  }
-  
-  .tab-btn.active,
-  .tab-btn:focus {
-    background: #7bb7a4;
-    color: #fff;
-    border-bottom: 4px solid #7bb7a4;
-  }
-  
-  .tab-content-wrapper {
-    background: #fff;
-    border-radius: 0 0 8px 8px;
-    min-height: 80px;
-    border: 1.5px solid #e1e1e1;
-    border-top: none;
-    padding: 18px 12px;
+    padding: 12px 22px 10px 22px;
     font-size: 1.05rem;
-    color: #888;
-    box-shadow: 0 2px 10px rgba(80,80,120,0.03);
-  }
-  
-  .tab-content {
-    display: none;
-    animation: fadeInTab 0.4s;
-  }
-  .tab-content.active {
-    display: block;
-  }
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 10px 10px 0 0;
+    outline: none;
+}
 
-  .tab-title {
-    font-size: 1.2rem;
+.tab-btn.active,
+.tab-btn:focus {
+    background: #7380C7;
+    color: #fff;
+    border-bottom: 4px solid #7380C7;
+}
+
+.tab-content-wrapper {
+    background: #fff;
+    border-radius: 0 0 12px 12px;
+    min-height: 90px;
+    border: 1.5px solid #d6d6ea;
+    border-top: none;
+    padding: 22px 18px;
+    font-size: 1.05rem;
+    color: #666;
+    box-shadow: 0 3px 14px rgba(80,80,120,0.05);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInTab 0.4s ease forwards;
+}
+.tab-content.active {
+    display: block;
+}
+
+.tab-title {
+    font-size: 1.3rem;
     color: #222;
     font-weight: 700;
-    margin-bottom: 8px;
-  }
-  
-  .parfum-notes {
-    margin: 14px 0 0 0;
-    padding: 0 0 0 18px;
-    color: #444;
-    font-size: 1.01rem;
-  }
-  .parfum-notes li {
-    margin-bottom: 4px;
-  }
-  
-  .tab-specs {
+    margin-bottom: 12px;
+}
+
+.parfum-notes {
+    margin: 16px 0 0 0;
+    padding-left: 18px;
+    color: #555;
+    font-size: 1.03rem;
+}
+
+.parfum-notes li {
+    margin-bottom: 6px;
+}
+
+.tab-specs {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    padding: 10px 0 0 0;
-  }
-  .tab-spec-row {
+    gap: 10px;
+    padding-top: 12px;
+}
+
+.tab-spec-row {
     display: flex;
     align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px dashed #e1e1e1;
-    font-size: 1.07rem;
-  }
-  .tab-spec-row:last-child {
-    border-bottom: none;
-  }
-  .tab-spec-label {
-    min-width: 140px;
-    color: #38ada9;
-    font-weight: 600;
-    margin-right: 14px;
-    letter-spacing: 0.3px;
-    font-family: 'Lora', serif;
-  }
-  
-  .tab-recomandari {
-    padding: 8px 0 0 0;
-  }
-  .tab-recomandari h4 {
-    color: #38ada9;
-    font-size: 1.08rem;
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-  .tab-recomandari ul {
-    margin: 0 0 10px 18px;
-    padding: 0;
+    padding: 10px 0;
+    border-bottom: 1px dashed #d6d6ea;
+    font-size: 1.1rem;
     color: #444;
-  }
-  .tab-recomandari li {
-    margin-bottom: 4px;
-    font-size: 1.01rem;
-  }
-  .tab-review {
+}
+
+.tab-spec-row:last-child {
+    border-bottom: none;
+}
+
+.tab-spec-label {
+    min-width: 150px;
+    color: #38ada9;
+    font-weight: 700;
+    margin-right: 16px;
+    letter-spacing: 0.4px;
+    font-family: 'Lora', serif;
+}
+
+.tab-recomandari {
+    padding-top: 12px;
+}
+
+.tab-recomandari h4 {
+    color: #38ada9;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.tab-recomandari ul {
+    margin: 0 0 12px 18px;
+    padding: 0;
+    color: #555;
+}
+
+.tab-recomandari li {
+    margin-bottom: 6px;
+    font-size: 1.03rem;
+}
+
+.tab-review {
     background: #f4f7fa;
     border-left: 4px solid #38ada9;
-    padding: 10px 14px;
+    padding: 12px 16px;
     color: #555;
     font-style: italic;
-    font-size: 1.01rem;
-    margin-top: 10px;
+    font-size: 1.03rem;
+    margin-top: 14px;
     border-radius: 0 8px 8px 0;
-  }
-  
-  @keyframes fadeInTab {
+}
+
+/* Animatie fade in tab */
+@keyframes fadeInTab {
     from { opacity: 0; transform: translateY(20px);}
     to { opacity: 1; transform: none;}
-  }
-  
-/* stil pt disponibilitate parfumuri */
+}
 
+/* Disponibilitate parfumuri */
 .parfum-availability-inline {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     color: #38ada9;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-  
-  .parfum-availability-inline .fa-check-circle {
-    color: green;
-  }
-  
-  .parfum-availability-inline .fa-exclamation-circle {
-    color: orange;
-  }
+    font-weight: 700;
+    font-size: 1.05rem;
+}
 
-/* stil pt pop-up imagini */
+.parfum-availability-inline .fa-check-circle {
+    color: #2ecc71;
+}
 
+.parfum-availability-inline .fa-exclamation-circle {
+    color: #f39c12;
+}
+
+/* Pop-up imagini */
 #popup-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -1422,9 +1640,9 @@ input[type="submit"]:hover {
     justify-content: center;
     z-index: 10000;
     transition: background 0.2s;
-  }
-  
-  #popup-inner {
+}
+
+#popup-inner {
     position: relative;
     max-width: 98vw;
     max-height: 98vh;
@@ -1435,9 +1653,9 @@ input[type="submit"]:hover {
     flex-direction: column;
     align-items: center;
     padding: 0;
-  }
-  
-  #popup-inner img, #popup-inner video {
+}
+
+#popup-inner img, #popup-inner video {
     width: 100%;
     height: auto;
     max-width: 95vw;
@@ -1446,26 +1664,38 @@ input[type="submit"]:hover {
     display: block;
     margin: 0 auto;
     background: #111;
-  }
-  
-  #popup-close {
+}
+
+#popup-close {
     position: absolute;
     top: 10px; right: 18px;
     font-size: 2.2rem;
-    color: #317cee;
+    color: #7380C7;
     cursor: pointer;
     font-weight: bold;
     z-index: 10;
     transition: color 0.2s;
-  }
-  #popup-close:hover { color: #0848a8; }
-  
-  @media (max-width: 700px) {
-    #popup-inner img, #popup-inner video {
-      max-width: 98vw;
-      max-height: 60vh;
+}
+#popup-close:hover { color: #4a4a7a; }
+
+/* Responsive */
+@media (max-width: 700px) {
+    .parfum-item {
+        width: 100%;
     }
-  }
+    #popup-inner img, #popup-inner video {
+        max-width: 98vw;
+        max-height: 60vh;
+    }
+    .tab-spec-label {
+        min-width: 110px;
+    }
+    .tab-btn {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
   
   
   
