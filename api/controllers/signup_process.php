@@ -6,7 +6,6 @@ require_once '../config/db.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-// Exemplu validare minimă
 if (
     empty($data['first_name']) || empty($data['last_name']) || empty($data['email']) ||
     empty($data['password']) || empty($data['confirm_password']) || ($data['password'] !== $data['confirm_password'])
@@ -34,10 +33,10 @@ try {
         isset($data['terms']) && $data['terms'] ? 1 : 0,
         'user'
     ]);
-    error_log("Inserție reușită pentru email: " . $data['email']); // Linie de debug
+    error_log("Inserție reușită pentru email: " . $data['email']); 
     echo json_encode(['success' => true, 'message' => 'Cont creat cu succes!']);
 } catch (PDOException $e) {
-    error_log("Eroare la inserție: " . $e->getMessage()); // Linie de debug
+    error_log("Eroare la inserție: " . $e->getMessage()); 
     echo json_encode(['success' => false, 'message' => 'Eroare la înregistrare: ' . $e->getMessage()]);
 }
 

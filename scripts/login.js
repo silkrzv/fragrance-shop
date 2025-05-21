@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = JSON.parse(text);
 
       if (data.success) {
-        // Salvează în localStorage toate datele relevante ale userului
         localStorage.setItem(
           "user",
           JSON.stringify({

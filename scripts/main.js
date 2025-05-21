@@ -1,30 +1,30 @@
 // functionalitatea de header dinamic
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const user = JSON.parse(localStorage.getItem('user') || 'null');
-  const loginLink = document.getElementById('login-link');
-  const userMenu = document.getElementById('user-menu');
-  const userNameSpan = document.getElementById('user-name');
-  const userRoleBadge = document.getElementById('user-role-badge');
+document.addEventListener("DOMContentLoaded", () => {
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+  const loginLink = document.getElementById("login-link");
+  const userMenu = document.getElementById("user-menu");
+  const userNameSpan = document.getElementById("user-name");
+  const userRoleBadge = document.getElementById("user-role-badge");
 
   if (user) {
-    // Ascunde link-ul login
     if (loginLink) loginLink.style.display = "none";
 
-    // Arată meniul user
     if (userMenu) {
       userMenu.style.display = "flex";
 
-      // Afișează numele complet (first_name + last_name dacă există)
+      // Afiseaza numele complet (first_name + last_name daca exista)
       if (userNameSpan) {
-        userNameSpan.textContent = (user.first_name || '') + (user.last_name ? ' ' + user.last_name : '') || "Contul meu";
+        userNameSpan.textContent =
+          (user.first_name || "") +
+            (user.last_name ? " " + user.last_name : "") || "Contul meu";
       }
 
-      // Afișează rolul userului
+      // Afiseaza rolul userului
       if (userRoleBadge && user.role) {
-        userRoleBadge.textContent = user.role.toLowerCase() === 'admin' ? 'Admin' : 'User';
-        userRoleBadge.className = 'user-role-badge ' + user.role.toLowerCase();
+        userRoleBadge.textContent =
+          user.role.toLowerCase() === "admin" ? "Admin" : "User";
+        userRoleBadge.className = "user-role-badge " + user.role.toLowerCase();
       }
     }
   } else {
@@ -34,213 +34,201 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Dropdown user
-  const userBtn = document.getElementById('user-btn');
+  const userBtn = document.getElementById("user-btn");
   if (userBtn && userMenu) {
-    userBtn.addEventListener('click', (e) => {
+    userBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      userMenu.classList.toggle('open');
+      userMenu.classList.toggle("open");
     });
 
-    document.addEventListener('click', () => {
-      userMenu.classList.remove('open');
+    document.addEventListener("click", () => {
+      userMenu.classList.remove("open");
     });
 
-    userMenu.addEventListener('click', e => e.stopPropagation());
+    userMenu.addEventListener("click", (e) => e.stopPropagation());
   }
 });
 
-
-
-
-
-
 // functionalitate de actualizare a coșului
 
-document.addEventListener('DOMContentLoaded', () => {
-  const user = JSON.parse(localStorage.getItem('user'));
-  document.querySelectorAll('.btn-add').forEach(btn => {
+document.addEventListener("DOMContentLoaded", () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  document.querySelectorAll(".btn-add").forEach((btn) => {
     btn.disabled = !user;
   });
-  
+
   updateCartUI();
 
-  // Funcție care actualizează suma și numărul produselor în header
+  // Functie care actualizeaza suma si numarul produselor in header
   function updateCartUI() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '{}');
-    const cartCountElem = document.querySelector('.cart-count');
-    const cartAmountElem = document.querySelector('.cart-amount');
+    const cart = JSON.parse(localStorage.getItem("cart") || "{}");
+    const cartCountElem = document.querySelector(".cart-count");
+    const cartAmountElem = document.querySelector(".cart-amount");
 
     if (!cartCountElem || !cartAmountElem) return;
 
-    // Preluăm lista produselor pentru a calcula suma totală
-    fetch('/fragrance_shop/api/controllers/products.php')
-      .then(res => res.json())
-      .then(data => {
+    fetch("/fragrance_shop/api/controllers/products.php")
+      .then((res) => res.json())
+      .then((data) => {
         if (!data.success) return;
 
         let totalCount = 0;
         let totalAmount = 0;
 
         for (const [productId, qty] of Object.entries(cart)) {
-          const product = data.products.find(p => p.id == productId);
+          const product = data.products.find((p) => p.id == productId);
           if (product) {
             totalCount += qty;
             totalAmount += product.price * qty;
           }
         }
 
-        cartCountElem.textContent = `${totalCount} ${totalCount === 1 ? 'Produs' : 'Produse'}`;
-        cartAmountElem.textContent = totalAmount.toFixed(2) + ' lei';
+        cartCountElem.textContent = `${totalCount} ${
+          totalCount === 1 ? "Produs" : "Produse"
+        }`;
+        cartAmountElem.textContent = totalAmount.toFixed(2) + " lei";
       });
   }
 
-  // Ascultă evenimentul custom pentru actualizare coș (opțional)
-  document.addEventListener('cartUpdated', updateCartUI);
+  document.addEventListener("cartUpdated", updateCartUI);
 });
-
-
-
-
 
 // sortare tabel recenzii
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("table.sortable").forEach((table) => {
-        const headers = table.querySelectorAll("thead th");
-        let sortDirections = Array(headers.length).fill(true); // true = asc, false = desc
+  document.querySelectorAll("table.sortable").forEach((table) => {
+    const headers = table.querySelectorAll("thead th");
+    let sortDirections = Array(headers.length).fill(true); // true = asc, false = desc
 
-        headers.forEach((header, index) => {
-            header.addEventListener("click", () => {
-                const tbody = table.querySelector("tbody");
-                const rows = Array.from(tbody.querySelectorAll("tr"));
-                const asc = sortDirections[index];
+    headers.forEach((header, index) => {
+      header.addEventListener("click", () => {
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        const asc = sortDirections[index];
 
-                rows.sort((a, b) => {
-                    const cellA = a.children[index].textContent.trim();
-                    const cellB = b.children[index].textContent.trim();
+        rows.sort((a, b) => {
+          const cellA = a.children[index].textContent.trim();
+          const cellB = b.children[index].textContent.trim();
 
-                    const aNum = parseFloat(cellA);
-                    const bNum = parseFloat(cellB);
-                    const isNumeric = !isNaN(aNum) && !isNaN(bNum);
+          const aNum = parseFloat(cellA);
+          const bNum = parseFloat(cellB);
+          const isNumeric = !isNaN(aNum) && !isNaN(bNum);
 
-                    if (isNumeric) {
-                        return asc ? aNum - bNum : bNum - aNum;
-                    } else {
-                        return asc
-                            ? cellA.localeCompare(cellB)
-                            : cellB.localeCompare(cellA);
-                    }
-                });
-
-                rows.forEach((row) => tbody.appendChild(row));
-
-                headers.forEach((h) => h.classList.remove("sort-asc", "sort-desc"));
-                header.classList.add(asc ? "sort-asc" : "sort-desc");
-
-                sortDirections[index] = !asc;
-            });
+          if (isNumeric) {
+            return asc ? aNum - bNum : bNum - aNum;
+          } else {
+            return asc
+              ? cellA.localeCompare(cellB)
+              : cellB.localeCompare(cellA);
+          }
         });
+
+        rows.forEach((row) => tbody.appendChild(row));
+
+        headers.forEach((h) => h.classList.remove("sort-asc", "sort-desc"));
+        header.classList.add(asc ? "sort-asc" : "sort-desc");
+
+        sortDirections[index] = !asc;
+      });
     });
+  });
 
-    // funcționalitate adăugare recenzie
-    const reviewForm = document.getElementById("reviewForm");
-    const reviewsTableBody = document.getElementById("reviewsTableBody");
+  // functionalitate adaugare recenzie
+  const reviewForm = document.getElementById("reviewForm");
+  const reviewsTableBody = document.getElementById("reviewsTableBody");
 
-    reviewForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+  reviewForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        const name = document.getElementById("nameInput").value.trim();
-        const perfume = document.getElementById("perfumeInput").value.trim();
-        const review = document.getElementById("reviewInput").value.trim();
-        const stars = document.getElementById("starsInput").value;
+    const name = document.getElementById("nameInput").value.trim();
+    const perfume = document.getElementById("perfumeInput").value.trim();
+    const review = document.getElementById("reviewInput").value.trim();
+    const stars = document.getElementById("starsInput").value;
 
-        if (!name || !perfume || !review || !stars) return;
+    if (!name || !perfume || !review || !stars) return;
 
-        const newRow = document.createElement("tr");
-        newRow.innerHTML = `
+    const newRow = document.createElement("tr");
+    newRow.innerHTML = `
             <td>${name}</td>
             <td>${perfume}</td>
             <td>${review}</td>
             <td>${stars}</td>
         `;
 
-        reviewsTableBody.appendChild(newRow);
-        reviewForm.reset();
-    });
+    reviewsTableBody.appendChild(newRow);
+    reviewForm.reset();
+  });
 });
 
-
-// cerinta cu readmore
+// functionalitatea cu readmore
 
 document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".list-item");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
+  const items = document.querySelectorAll(".list-item");
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
 
-    let currentIndex = 0;
-    let interval = 3000; // 3 secunde default
-    let autoAdvance;
+  let currentIndex = 0;
+  let interval = 3000; // 3 secunde default
+  let autoAdvance;
 
-    function showItem(index) {
-        items.forEach((item, i) => {
-            item.classList.remove("visible");
-            if (i === index) {
-                item.classList.add("visible");
-            }
-        });
-    }
-
-    function nextItem() {
-        currentIndex = (currentIndex + 1) % items.length;
-        showItem(currentIndex);
-    }
-
-    function prevItem() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(currentIndex);
-    }
-
-    nextBtn.addEventListener("click", () => {
-        clearInterval(autoAdvance);
-        nextItem();
-        startAutoAdvance();
+  function showItem(index) {
+    items.forEach((item, i) => {
+      item.classList.remove("visible");
+      if (i === index) {
+        item.classList.add("visible");
+      }
     });
+  }
 
-    prevBtn.addEventListener("click", () => {
-        clearInterval(autoAdvance);
-        prevItem();
-        startAutoAdvance();
-    });
-
-    function startAutoAdvance() {
-        autoAdvance = setInterval(() => {
-            nextItem();
-        }, interval);
-    }
-
-    // Inițializare
+  function nextItem() {
+    currentIndex = (currentIndex + 1) % items.length;
     showItem(currentIndex);
+  }
+
+  function prevItem() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    showItem(currentIndex);
+  }
+
+  nextBtn.addEventListener("click", () => {
+    clearInterval(autoAdvance);
+    nextItem();
     startAutoAdvance();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    clearInterval(autoAdvance);
+    prevItem();
+    startAutoAdvance();
+  });
+
+  function startAutoAdvance() {
+    autoAdvance = setInterval(() => {
+      nextItem();
+    }, interval);
+  }
+
+  showItem(currentIndex);
+  startAutoAdvance();
 });
 
-
 // Hamburger menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const mainMenu = document.getElementById('main-menu');
+const menuToggle = document.getElementById("menu-toggle");
+const mainMenu = document.getElementById("main-menu");
 
-menuToggle.addEventListener('click', () => {
-  mainMenu.classList.toggle('active');
+menuToggle.addEventListener("click", () => {
+  mainMenu.classList.toggle("active");
 });
 
 // Submenu open/close pe mobil
-const navItems = document.querySelectorAll('.nav-item');
+const navItems = document.querySelectorAll(".nav-item");
 
-navItems.forEach(item => {
-  item.addEventListener('click', function(e) {
+navItems.forEach((item) => {
+  item.addEventListener("click", function (e) {
     if (window.innerWidth <= 768) {
-      const submenu = this.querySelector('.submenu');
+      const submenu = this.querySelector(".submenu");
       if (submenu) {
-        e.preventDefault(); // Previne navigarea directă la link
-        this.classList.toggle('active');
+        e.preventDefault();
+        this.classList.toggle("active");
       }
     }
   });
@@ -248,280 +236,270 @@ navItems.forEach(item => {
 
 // functie de actualizare a anului din footer
 function updateFooterYear() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 }
 
-// Apelează funcția când pagina este încărcată
-document.addEventListener('DOMContentLoaded', updateFooterYear);
-
-
+document.addEventListener("DOMContentLoaded", updateFooterYear);
 
 // implementare cerinta #1 jQuery
-$(function() {
-    // Verifică dacă jQuery este încărcat corect
-    if (!$) {
-      console.error("jQuery nu este încărcat corect");
-      return;
-    }
-  
-    // Verifică dacă elementele există în DOM
-    const $slider = $('#custom-slider');
-    if (!$slider.length) {
-      console.error("Elementul #custom-slider nu a fost găsit");
-      return;
-    }
-    
-    const $itemsContainer = $slider.find('.slider-items');
-    const $items = $itemsContainer.children('.slider-item');
-    const itemCount = $items.length;
-    
-    if (!$itemsContainer.length || !$items.length) {
-      console.error("Containerul sau elementele slider-ului nu au fost găsite");
-      return;
-    }
-    
-    console.log("Slider inițializat cu " + itemCount + " elemente");
-    
-    let currentIndex = 0;
-    let visibleCount = parseInt($('#slider-count').val(), 10) || 1;
-    let intervalSec = parseInt($('#slider-interval').val(), 10) || 3;
-    let autoSlide = null;
-    let isDragging = false;
-    let startX, moveX;
-  
-    // Creează indicatoarele pentru slide-uri
-    const $dotsContainer = $slider.find('.slider-dots');
-    $dotsContainer.empty(); // Curăță indicatoarele existente
-    
-    for (let i = 0; i < itemCount; i++) {
-      $dotsContainer.append(`<div class="slider-dot" data-index="${i}"></div>`);
-    }
-    
-    const $dots = $dotsContainer.find('.slider-dot');
-    $dots.first().addClass('active');
-  
-    // Funcție pentru actualizarea slide-ului activ
-    function goToSlide(index) {
-      currentIndex = index;
-      console.log("Navigare la slide-ul: " + currentIndex);
-      
-      // Folosim translateX pentru tranziție
-      $itemsContainer.css({
-        'transform': `translateX(-${currentIndex * 100}%)`,
-        'transition': 'transform 0.8s ease'
-      });
-      
-      $dots.removeClass('active').eq(currentIndex).addClass('active');
-    }
-  
-    // Slide următor
-    function nextSlide() {
-      let nextIndex = (currentIndex + 1) % itemCount;
-      goToSlide(nextIndex);
-    }
-  
-    // Slide anterior
-    function prevSlide() {
-      let prevIndex = (currentIndex - 1 + itemCount) % itemCount;
-      goToSlide(prevIndex);
-    }
-  
-    // Resetează interval auto-slide
-    function resetInterval() {
-      if (autoSlide) clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, intervalSec * 1000);
-    }
-  
-    // Event listeners pentru controlul slide-urilor
-    $slider.find('.slider-arrow-right').on('click', function(e) {
-      e.preventDefault();
-      console.log("Buton dreapta apăsat");
-      nextSlide();
-      resetInterval();
-    });
-  
-    $slider.find('.slider-arrow-left').on('click', function(e) {
-      e.preventDefault();
-      console.log("Buton stânga apăsat");
-      prevSlide();
-      resetInterval();
-    });
-  
-    // Event listeners pentru dots
-    $dots.on('click', function() {
-      const index = $(this).data('index');
-      console.log("Dot apăsat: " + index);
-      goToSlide(index);
-      resetInterval();
-    });
-  
-    // Funcționalitate de swipe pe mobil
-    $itemsContainer.on('touchstart mousedown', function(e) {
-      isDragging = true;
-      startX = e.type === 'touchstart' ? e.originalEvent.touches[0].clientX : e.clientX;
-      $itemsContainer.css('transition', 'none');
-      e.preventDefault();
-    });
-  
-    $itemsContainer.on('touchmove mousemove', function(e) {
-      if (!isDragging) return;
-      moveX = e.type === 'touchmove' ? e.originalEvent.touches[0].clientX : e.clientX;
-      const diff = moveX - startX;
-      const offset = (diff / $slider.width()) * 100;
-      $itemsContainer.css('transform', `translateX(calc(-${currentIndex * 100}% + ${offset}px))`);
-    });
-  
-    $itemsContainer.on('touchend mouseup mouseleave', function() {
-      if (!isDragging) return;
-      isDragging = false;
-      $itemsContainer.css('transition', 'transform 0.8s ease');
-      
-      if (moveX && Math.abs(moveX - startX) > 50) { 
-        if (moveX - startX > 0) {
-          prevSlide();
-        } else {
-          nextSlide();
-        }
-      } else {
-        goToSlide(currentIndex);
-      }
-      moveX = null;
-      resetInterval();
-    });
-  
-    $('#slider-count').on('input change', function() {
-      visibleCount = Math.max(1, Math.min(itemCount, parseInt(this.value, 10) || 1));
-      console.log("Vizibile: " + visibleCount);
-      resetInterval();
-    });
-  
-    $('#slider-interval').on('input change', function() {
-      intervalSec = Math.max(1, parseInt(this.value, 10) || 3);
-      console.log("Interval: " + intervalSec + "s");
-      resetInterval();
-    });
-  
-    function handleVideoAutoplay() {
-      const $videos = $items.find('video');
-      $videos.each(function() {
-        $(this)[0].pause();
-      });
-      
-      const $currentVideo = $items.eq(currentIndex).find('video');
-      if ($currentVideo.length) {
-        $currentVideo[0].currentTime = 0;
-        const playPromise = $currentVideo[0].play();
-        
-        if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            console.log("Eroare autoplay: " + error);
-          });
-        }
-      }
-    }
-  
-    $items.find('video').on('ended', function() {
-      nextSlide();
-      resetInterval();
-    });
-  
-    $itemsContainer.on('transitionend', handleVideoAutoplay);
-  
-    goToSlide(0);
-    resetInterval();
-    handleVideoAutoplay();
-    
-    console.log("Slider inițializat complet!");
-  });
-  
-
-
-// functionalitatea 2 jQuery
-  $(function() {
-    $('.product-tabs-section').each(function() {
-      const $section = $(this);
-      
-      $section.addClass('tab-container');
-      
-      $section.find('.tab-btn').on('click', function(e) {
-        e.preventDefault();
-
-        $section.find('.tab-btn').removeClass('active');
-      
-        $(this).addClass('active');
-        
-        const tabId = $(this).data('tab');
-        console.log("Tab ID: " + tabId); 
-        
-        $section.find('.tab-content').removeClass('active');
-        
-        $section.find('#' + tabId).addClass('active');
-        console.log("Found tab content: " + $section.find('#' + tabId).length); 
-      });
-    });
-  });
-
-
-
-// functionalitate 3 jQuery - pop-up imagine
-$(function() {
-  // Ascunde popup-ul la început
-  $('#popup-overlay').hide();
-
-  // Funcție comună pentru afișarea unui element (imagine sau video) în popup
-  function showInPopup($element) {
-    // Curăță conținutul anterior
-    $('#popup-inner').find('img, video').remove();
-
-    let $clone;
-
-    if ($element.is('video')) {
-      $clone = $element.clone().removeAttr('width height controls muted autoplay');
-      $clone.attr({
-        controls: true,
-        autoplay: true
-      });
-    } else {
-      $clone = $element.clone().removeAttr('width height');
-    }
-
-    $('#popup-inner').append($clone);
-    $('#popup-overlay').fadeIn(200);
+$(function () {
+  if (!$) {
+    console.error("jQuery nu este încărcat corect");
+    return;
   }
 
-  // Click pe .parfum-img (funcționalitatea veche)
-  $('body').on('click', '.parfum-img', function() {
-    showInPopup($(this));
+  const $slider = $("#custom-slider");
+  if (!$slider.length) {
+    console.error("Elementul #custom-slider nu a fost găsit");
+    return;
+  }
+
+  const $itemsContainer = $slider.find(".slider-items");
+  const $items = $itemsContainer.children(".slider-item");
+  const itemCount = $items.length;
+
+  if (!$itemsContainer.length || !$items.length) {
+    console.error("Containerul sau elementele slider-ului nu au fost găsite");
+    return;
+  }
+
+  console.log("Slider inițializat cu " + itemCount + " elemente");
+
+  let currentIndex = 0;
+  let visibleCount = parseInt($("#slider-count").val(), 10) || 1;
+  let intervalSec = parseInt($("#slider-interval").val(), 10) || 3;
+  let autoSlide = null;
+  let isDragging = false;
+  let startX, moveX;
+
+  // Creeaza indicatoarele pentru slide-uri
+  const $dotsContainer = $slider.find(".slider-dots");
+  $dotsContainer.empty();
+
+  for (let i = 0; i < itemCount; i++) {
+    $dotsContainer.append(`<div class="slider-dot" data-index="${i}"></div>`);
+  }
+
+  const $dots = $dotsContainer.find(".slider-dot");
+  $dots.first().addClass("active");
+
+  // Functie pentru actualizarea slide-ului activ
+  function goToSlide(index) {
+    currentIndex = index;
+    console.log("Navigare la slide-ul: " + currentIndex);
+
+    // Folosim translateX pentru tranzitie
+    $itemsContainer.css({
+      transform: `translateX(-${currentIndex * 100}%)`,
+      transition: "transform 0.8s ease",
+    });
+
+    $dots.removeClass("active").eq(currentIndex).addClass("active");
+  }
+
+  // Slide urmator
+  function nextSlide() {
+    let nextIndex = (currentIndex + 1) % itemCount;
+    goToSlide(nextIndex);
+  }
+
+  // Slide anterior
+  function prevSlide() {
+    let prevIndex = (currentIndex - 1 + itemCount) % itemCount;
+    goToSlide(prevIndex);
+  }
+
+  // Reseteaza interval auto-slide
+  function resetInterval() {
+    if (autoSlide) clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, intervalSec * 1000);
+  }
+
+  // Event listeners pentru controlul slide-urilor
+  $slider.find(".slider-arrow-right").on("click", function (e) {
+    e.preventDefault();
+    console.log("Buton dreapta apăsat");
+    nextSlide();
+    resetInterval();
   });
 
-  // Click pe img sau video din slider (funcționalitatea nouă)
-  $('body').on('click', '#custom-slider .slider-item img, #custom-slider .slider-item video', function(e) {
-    e.preventDefault(); // prevenim comportamentul implicit (ex: autoplay blocat)
-    showInPopup($(this));
+  $slider.find(".slider-arrow-left").on("click", function (e) {
+    e.preventDefault();
+    console.log("Buton stânga apăsat");
+    prevSlide();
+    resetInterval();
   });
 
-  // Închide popup-ul la click pe fundal sau pe X
-  $('#popup-close, #popup-overlay').on('click', function(e) {
-    if (e.target.id === 'popup-overlay' || e.target.id === 'popup-close') {
-      $('#popup-overlay').fadeOut(200, function() {
-        $('#popup-inner').find('img, video').remove();
-      });
+  // Event listeners pentru dots
+  $dots.on("click", function () {
+    const index = $(this).data("index");
+    console.log("Dot apăsat: " + index);
+    goToSlide(index);
+    resetInterval();
+  });
+
+  // Functionalitate de swipe pe mobil
+  $itemsContainer.on("touchstart mousedown", function (e) {
+    isDragging = true;
+    startX =
+      e.type === "touchstart" ? e.originalEvent.touches[0].clientX : e.clientX;
+    $itemsContainer.css("transition", "none");
+    e.preventDefault();
+  });
+
+  $itemsContainer.on("touchmove mousemove", function (e) {
+    if (!isDragging) return;
+    moveX =
+      e.type === "touchmove" ? e.originalEvent.touches[0].clientX : e.clientX;
+    const diff = moveX - startX;
+    const offset = (diff / $slider.width()) * 100;
+    $itemsContainer.css(
+      "transform",
+      `translateX(calc(-${currentIndex * 100}% + ${offset}px))`
+    );
+  });
+
+  $itemsContainer.on("touchend mouseup mouseleave", function () {
+    if (!isDragging) return;
+    isDragging = false;
+    $itemsContainer.css("transition", "transform 0.8s ease");
+
+    if (moveX && Math.abs(moveX - startX) > 50) {
+      if (moveX - startX > 0) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    } else {
+      goToSlide(currentIndex);
     }
+    moveX = null;
+    resetInterval();
   });
 
-  // Previne închiderea când se face click pe conținutul popup-ului
-  $('#popup-inner').on('click', function(e) {
-    e.stopPropagation();
+  $("#slider-count").on("input change", function () {
+    visibleCount = Math.max(
+      1,
+      Math.min(itemCount, parseInt(this.value, 10) || 1)
+    );
+    console.log("Vizibile: " + visibleCount);
+    resetInterval();
+  });
+
+  $("#slider-interval").on("input change", function () {
+    intervalSec = Math.max(1, parseInt(this.value, 10) || 3);
+    console.log("Interval: " + intervalSec + "s");
+    resetInterval();
+  });
+
+  function handleVideoAutoplay() {
+    const $videos = $items.find("video");
+    $videos.each(function () {
+      $(this)[0].pause();
+    });
+
+    const $currentVideo = $items.eq(currentIndex).find("video");
+    if ($currentVideo.length) {
+      $currentVideo[0].currentTime = 0;
+      const playPromise = $currentVideo[0].play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Eroare autoplay: " + error);
+        });
+      }
+    }
+  }
+
+  $items.find("video").on("ended", function () {
+    nextSlide();
+    resetInterval();
+  });
+
+  $itemsContainer.on("transitionend", handleVideoAutoplay);
+
+  goToSlide(0);
+  resetInterval();
+  handleVideoAutoplay();
+
+  console.log("Slider inițializat complet!");
+});
+
+// functionalitatea 2 jQuery
+$(function () {
+  $(".product-tabs-section").each(function () {
+    const $section = $(this);
+
+    $section.addClass("tab-container");
+
+    $section.find(".tab-btn").on("click", function (e) {
+      e.preventDefault();
+
+      $section.find(".tab-btn").removeClass("active");
+
+      $(this).addClass("active");
+
+      const tabId = $(this).data("tab");
+      console.log("Tab ID: " + tabId);
+
+      $section.find(".tab-content").removeClass("active");
+
+      $section.find("#" + tabId).addClass("active");
+      console.log("Found tab content: " + $section.find("#" + tabId).length);
+    });
   });
 });
 
+// functionalitate 3 jQuery - pop-up imagine
+$(function () {
+  $("#popup-overlay").hide();
 
+  function showInPopup($element) {
+    $("#popup-inner").find("img, video").remove();
 
-  
-  
-  
-  
+    let $clone;
 
+    if ($element.is("video")) {
+      $clone = $element
+        .clone()
+        .removeAttr("width height controls muted autoplay");
+      $clone.attr({
+        controls: true,
+        autoplay: true,
+      });
+    } else {
+      $clone = $element.clone().removeAttr("width height");
+    }
+
+    $("#popup-inner").append($clone);
+    $("#popup-overlay").fadeIn(200);
+  }
+
+  $("body").on("click", ".parfum-img", function () {
+    showInPopup($(this));
+  });
+
+  $("body").on(
+    "click",
+    "#custom-slider .slider-item img, #custom-slider .slider-item video",
+    function (e) {
+      e.preventDefault();
+      showInPopup($(this));
+    }
+  );
+
+  $("#popup-close, #popup-overlay").on("click", function (e) {
+    if (e.target.id === "popup-overlay" || e.target.id === "popup-close") {
+      $("#popup-overlay").fadeOut(200, function () {
+        $("#popup-inner").find("img, video").remove();
+      });
+    }
+  });
+
+  $("#popup-inner").on("click", function (e) {
+    e.stopPropagation();
+  });
+});

@@ -1,187 +1,386 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Înregistrare - Fragrance Shop</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="header-container">
-      <div class="logo-title">
-        <a href="index.html" class="logo-link">
-          <img src="../images/logo.png" alt="Fragrance Shop Logo" width="60" height="60">
-          <h1>Fragrance Shop</h1>
-        </a>
-      </div>
-      <div class="search-bar">
-        <input type="text" placeholder="Caută parfumuri, accesorii...">
-        <button type="submit"><i class="fas fa-search"></i></button>
-      </div>
-      <!-- Acțiuni rapide -->
-      <div class="header-actions">
-  <!-- Link login, vizibil doar când user NU este logat -->
-  <a href="login.html" id="login-link" class="header-action" title="Autentificare">
-    <i class="fas fa-user"></i>
-  </a>
-
-  <!-- Meniu user, vizibil doar când user ESTE logat -->
-  <div id="user-menu" class="user-dropdown" style="display:none;">
-    <button class="header-action user-btn" title="Contul meu">
-      <i class="fas fa-user-circle"></i>
-      <span id="user-name"></span>
-    </button>
-    <ul class="user-menu-list">
-      <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
-      <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
-      <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
-      <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
-  </div>
-
-  <a href="cart.html" class="header-cart">
-    <i class="fas fa-shopping-cart"></i>
-    <span>
-      <span class="cart-amount">0,00 lei</span><br>
-      <span class="cart-count">0 Produsul</span>
-    </span>
-  </a>
-</div>
-
-      <button class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav class="main-menu" id="main-menu">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
-          <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
-            <ul class="submenu">
-              <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
-              <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-title">
+          <a href="index.html" class="logo-link">
+            <img
+              src="../images/logo.png"
+              alt="Fragrance Shop Logo"
+              width="60"
+              height="60"
+            />
+            <h1>Fragrance Shop</h1>
+          </a>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Caută parfumuri, accesorii..." />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <!-- Link login, vizibil doar cand user NU este logat -->
+          <a
+            href="login.html"
+            id="login-link"
+            class="header-action"
+            title="Autentificare"
+          >
+            <i class="fas fa-user"></i>
+          </a>
+          <!-- Meniu user, vizibil doar cand user ESTE logat -->
+          <div id="user-menu" class="user-dropdown" style="display: none">
+            <button
+              class="header-action user-btn"
+              id="user-btn"
+              title="Contul meu"
+            >
+              <i class="fas fa-user-circle"></i>
+              <span id="user-name" class="user-name"></span>
+              <span id="user-role-badge" class="user-role-badge"></span>
+              <i class="fas fa-chevron-down chevron"></i>
+            </button>
+            <ul class="user-menu" id="user-menu-list">
+              <li>
+                <a href="profile.html"
+                  ><i class="fas fa-user"></i> Profilul meu</a
+                >
+              </li>
+              <li>
+                <a href="orders.html"
+                  ><i class="fas fa-box"></i> Comenzile mele</a
+                >
+              </li>
+              <li>
+                <a href="wishlist.html"
+                  ><i class="fas fa-heart"></i> Favorite</a
+                >
+              </li>
+              <li>
+                <a href="#" id="logout-btn" class="logout-btn"
+                  ><i class="fas fa-sign-out-alt"></i> Logout</a
+                >
+              </li>
             </ul>
-          </li>
-          <li class="nav-item"><a href="offers.html" class="nav-link"><i class="fas fa-tags"></i> Oferte</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
+          </div>
+
+          <a href="cart.html" class="header-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>
+              <span class="cart-amount">0,00 lei</span><br />
+              <span class="cart-count">0 Produsul</span>
+            </span>
+          </a>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav class="main-menu" id="main-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Acasă</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shopping-bag"></i> Produse</a
+              >
+              <ul class="submenu">
+                <li>
+                  <a href="#"><i class="fa fa-star"></i> Parfumuri</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-gem"></i> Accesorii</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="offers.html" class="nav-link"
+                ><i class="fas fa-tags"></i> Oferte</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main class="signup-page">
-        <section class="signup-container">
-            <h2 class="signup-title"><i class="fas fa-user-plus"></i> Înregistrare</h2>
-            <form class="signup-form">
-                <fieldset class="signup-fieldset">
-                    <legend class="signup-legend"><i class="fas fa-user"></i> Detalii cont</legend>
-            
-                    <label for="first_name" class="signup-label"><i class="fas fa-user"></i> Prenume:</label>
-                    <input type="text" id="first_name" name="first_name" maxlength="100" required class="signup-input">
-                    <span class="validation-indicator"></span>
-            
-                    <label for="last_name" class="signup-label"><i class="fas fa-user"></i> Nume:</label>
-                    <input type="text" id="last_name" name="last_name" maxlength="100" required class="signup-input">
-                    <span class="validation-indicator"></span>
-            
-                    <label for="email" class="signup-label"><i class="fas fa-envelope"></i> Email:</label>
-                    <input type="email" id="email" name="email" required class="signup-input">
-                    <span class="validation-indicator"></span>
-            
-                    <label for="password" class="signup-label"><i class="fas fa-lock"></i> Parolă:</label>
-                    <input type="password" id="password" name="password" minlength="6" required class="signup-input">
-                    <span class="validation-indicator"></span>
-            
-                    <label for="confirm_password" class="signup-label"><i class="fas fa-lock"></i> Confirmă parola:</label>
-                    <input type="password" id="confirm_password" name="confirm_password" minlength="6" required class="signup-input">
-                    <span class="validation-indicator"></span>
-                </fieldset>
-            
-                <fieldset class="signup-fieldset">
-                    <legend class="signup-legend"><i class="fas fa-info-circle"></i> Informații personale</legend>
-            
-                    <label for="dob" class="signup-label"><i class="fas fa-birthday-cake"></i> Data nașterii:</label>
-                    <input type="date" id="dob" name="dob" required class="signup-input">
-                    <span class="validation-indicator"></span>
-            
-                <div style="display: flex; gap: 10px; align-items: flex-start;">
-                    <div style="flex: 1;">
-                    <label for="country-select" class="signup-label"><i class="fas fa-globe"></i> Țară:</label>
-                    <select id="country-select" name="country" required class="signup-input">
-                    <option value="">Alege țara</option>
-                    </select>
-                    </div>
+      <section class="signup-container">
+        <h2 class="signup-title">
+          <i class="fas fa-user-plus"></i> Înregistrare
+        </h2>
+        <form class="signup-form">
+          <fieldset class="signup-fieldset">
+            <legend class="signup-legend">
+              <i class="fas fa-user"></i> Detalii cont
+            </legend>
 
-                    <div style="flex: 2;">
-                    <label for="phone" class="signup-label"><i class="fas fa-phone"></i> Telefon:</label>
-                    <input type="text" id="phone" name="phone" placeholder="ex: (+40) 123 456 789" required class="signup-input">
-                    <span class="validation-indicator"></span>
-                    </div>
-                </div>
+            <label for="first_name" class="signup-label"
+              ><i class="fas fa-user"></i> Prenume:</label
+            >
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              maxlength="100"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
 
-            
-                    <label class="signup-label"><i class="fas fa-venus-mars"></i> Gen:</label>
-                    <div class="gender-options">
-                        <input type="radio" id="male" name="gender" value="male" class="signup-radio" hidden>
-                        <label for="male" class="signup-radio-label" data-gender="male"><i class="fas fa-mars"></i> Masculin</label>
-            
-                        <input type="radio" id="female" name="gender" value="female" class="signup-radio" hidden>
-                        <label for="female" class="signup-radio-label" data-gender="female"><i class="fas fa-venus"></i> Feminin</label>
-            
-                        <input type="radio" id="other" name="gender" value="other" class="signup-radio" hidden>
-                        <label for="other" class="signup-radio-label" data-gender="other"><i class="fas fa-genderless"></i> Altul</label>
-            
-                        <input type="radio" id="prefer-not-to-say" name="gender" value="prefer-not-to-say" class="signup-radio" hidden>
-                        <label for="prefer-not-to-say" class="signup-radio-label" data-gender="prefer-not-to-say"><i class="fas fa-question-circle"></i> Prefer să nu spun</label>
-                    </div>
-            
-                    <label for="judet" class="signup-label"><i class="fas fa-map-marker-alt"></i> Județ:</label>
-                    <select id="judet" name="judet" required class="signup-input">
-                        <option value="">Selectează județul</option>
-                    </select>
-            
-                    <label for="oras" class="signup-label"><i class="fas fa-city"></i> Oraș:</label>
-                    <select id="oras" name="oras" required class="signup-input">
-                        <option value="">Selectează orașul</option>
-                    </select>
-            
-                    <div class="form-group terms" style="margin-top: 10px;">
-                        <input type="checkbox" name="terms" id="terms" required>
-                        <label for="terms">Sunt de acord cu <a href="#">Termenii și condițiile</a></label>
-                    </div>
-                </fieldset>
-            
-                <div class="form-group">
-                    <button type="submit" class="signup-button"><i class="fas fa-user-plus"></i> Creează cont</button>
-                </div>
-            
-            </form>
-            
-            <aside class="signup-aside">
-                <h3 class="signup-aside-title">Ai deja un cont?</h3>
-                <p><a href="/pages/login.html" target="_blank" class="signup-aside-link"><i class="fas fa-sign-in-alt"></i> Autentifică-te aici</a></p>
-            </aside>
-        </section>
+            <label for="last_name" class="signup-label"
+              ><i class="fas fa-user"></i> Nume:</label
+            >
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              maxlength="100"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
+
+            <label for="email" class="signup-label"
+              ><i class="fas fa-envelope"></i> Email:</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
+
+            <label for="password" class="signup-label"
+              ><i class="fas fa-lock"></i> Parolă:</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              minlength="6"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
+
+            <label for="confirm_password" class="signup-label"
+              ><i class="fas fa-lock"></i> Confirmă parola:</label
+            >
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              minlength="6"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
+          </fieldset>
+
+          <fieldset class="signup-fieldset">
+            <legend class="signup-legend">
+              <i class="fas fa-info-circle"></i> Informații personale
+            </legend>
+
+            <label for="dob" class="signup-label"
+              ><i class="fas fa-birthday-cake"></i> Data nașterii:</label
+            >
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              required
+              class="signup-input"
+            />
+            <span class="validation-indicator"></span>
+
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <div style="flex: 1">
+                <label for="country-select" class="signup-label"
+                  ><i class="fas fa-globe"></i> Țară:</label
+                >
+                <select
+                  id="country-select"
+                  name="country"
+                  required
+                  class="signup-input"
+                >
+                  <option value="">Alege țara</option>
+                </select>
+              </div>
+
+              <div style="flex: 2">
+                <label for="phone" class="signup-label"
+                  ><i class="fas fa-phone"></i> Telefon:</label
+                >
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="ex: (+40) 123 456 789"
+                  required
+                  class="signup-input"
+                />
+                <span class="validation-indicator"></span>
+              </div>
+            </div>
+
+            <label class="signup-label"
+              ><i class="fas fa-venus-mars"></i> Gen:</label
+            >
+            <div class="gender-options">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                class="signup-radio"
+                hidden
+              />
+              <label for="male" class="signup-radio-label" data-gender="male"
+                ><i class="fas fa-mars"></i> Masculin</label
+              >
+
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                class="signup-radio"
+                hidden
+              />
+              <label
+                for="female"
+                class="signup-radio-label"
+                data-gender="female"
+                ><i class="fas fa-venus"></i> Feminin</label
+              >
+
+              <input
+                type="radio"
+                id="other"
+                name="gender"
+                value="other"
+                class="signup-radio"
+                hidden
+              />
+              <label for="other" class="signup-radio-label" data-gender="other"
+                ><i class="fas fa-genderless"></i> Altul</label
+              >
+
+              <input
+                type="radio"
+                id="prefer-not-to-say"
+                name="gender"
+                value="prefer-not-to-say"
+                class="signup-radio"
+                hidden
+              />
+              <label
+                for="prefer-not-to-say"
+                class="signup-radio-label"
+                data-gender="prefer-not-to-say"
+                ><i class="fas fa-question-circle"></i> Prefer să nu spun</label
+              >
+            </div>
+
+            <label for="judet" class="signup-label"
+              ><i class="fas fa-map-marker-alt"></i> Județ:</label
+            >
+            <select id="judet" name="judet" required class="signup-input">
+              <option value="">Selectează județul</option>
+            </select>
+
+            <label for="oras" class="signup-label"
+              ><i class="fas fa-city"></i> Oraș:</label
+            >
+            <select id="oras" name="oras" required class="signup-input">
+              <option value="">Selectează orașul</option>
+            </select>
+
+            <div class="form-group terms" style="margin-top: 10px">
+              <input type="checkbox" name="terms" id="terms" required />
+              <label for="terms"
+                >Sunt de acord cu <a href="#">Termenii și condițiile</a></label
+              >
+            </div>
+          </fieldset>
+
+          <div class="form-group">
+            <button type="submit" class="signup-button">
+              <i class="fas fa-user-plus"></i> Creează cont
+            </button>
+          </div>
+        </form>
+
+        <aside class="signup-aside">
+          <h3 class="signup-aside-title">Ai deja un cont?</h3>
+          <p>
+            <a
+              href="/pages/login.html"
+              target="_blank"
+              class="signup-aside-link"
+              ><i class="fas fa-sign-in-alt"></i> Autentifică-te aici</a
+            >
+          </p>
+        </aside>
+      </section>
     </main>
 
     <footer class="footer-modern">
       <div class="footer-main-row">
         <div class="footer-col logo-newsletter">
           <div class="footer-logo-wrap">
-            <img src="../images/logo.png" alt="Fragrance Shop Logo" class="footer-logo">
+            <img
+              src="../images/logo.png"
+              alt="Fragrance Shop Logo"
+              class="footer-logo"
+            />
             <p class="footer-slogan">Magia aromelor!</p>
           </div>
           <div class="footer-newsletter">
             <h2>Obțineți cele mai recente știri și vânzări speciale</h2>
-            <p>Te poți dezabona în orice moment. Pentru aceasta te rugăm să folosești informațiile noastre de contact din nota legală.</p>
+            <p>
+              Te poți dezabona în orice moment. Pentru aceasta te rugăm să
+              folosești informațiile noastre de contact din nota legală.
+            </p>
             <form class="newsletter-form">
-              <input type="email" placeholder="Adresa dvs. de e-mail" required>
+              <input
+                type="email"
+                placeholder="Adresa dvs. de e-mail"
+                required
+              />
               <button type="submit">ABONAȚI-VĂ</button>
             </form>
             <div class="newsletter-privacy">
-              <input type="checkbox" id="privacy" required>
-              <label for="privacy">Sunt de acord cu <a href="#">Politica de confidențialitate</a></label>
+              <input type="checkbox" id="privacy" required />
+              <label for="privacy"
+                >Sunt de acord cu
+                <a href="#">Politica de confidențialitate</a></label
+              >
             </div>
           </div>
         </div>
@@ -208,24 +407,28 @@
           <div>
             <h4>METODA DE PLATĂ</h4>
             <div class="footer-payments">
-              <img src="../images/visa.png" alt="Visa">
-              <img src="../images/mastercard.png" alt="Mastercard">
+              <img src="../images/visa.png" alt="Visa" />
+              <img src="../images/mastercard.png" alt="Mastercard" />
             </div>
           </div>
           <div>
             <h4>URMAȚI-NE</h4>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            </div>            
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+            </div>
           </div>
           <div>
             <h4>MODALITATE DE LIVRARE</h4>
             <div class="footer-delivery">
-              <img src="../images/sameday.png" alt="Sameday">
-              <img src="../images/easybox.png" alt="Easybox">
-              <img src="../images/cargus.png" alt="Cargus">
-              <img src="../images/fan.png" alt="Fan Courier">
+              <img src="../images/sameday.png" alt="Sameday" />
+              <img src="../images/easybox.png" alt="Easybox" />
+              <img src="../images/cargus.png" alt="Cargus" />
+              <img src="../images/fan.png" alt="Fan Courier" />
             </div>
           </div>
         </div>
@@ -240,5 +443,5 @@
     <script src="../scripts/judet_oras.js"></script>
     <script src="../scripts/validate.js"></script>
     <script src="../scripts/signup.js"></script>
-</body>
+  </body>
 </html>

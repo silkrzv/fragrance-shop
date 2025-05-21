@@ -9,5 +9,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     exit;
 }
 
-// Pentru POST/PUT/DELETE vei adăuga ulterior codul pentru adăugare/actualizare/ștergere produs
+// Urmeaza implementate metodele de POST/PUT/DELETE pentru add/update/delete products
 ?>

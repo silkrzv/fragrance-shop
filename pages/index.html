@@ -1,262 +1,355 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Fragrance Shop - Home</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-  <div class="header-container">
-    <div class="logo-title">
-      <a href="index.html" class="logo-link">
-        <img src="../images/logo.png" alt="Fragrance Shop Logo" width="60" height="60">
-        <h1>Fragrance Shop</h1>
-      </a>
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Caută parfumuri, accesorii...">
-      <button type="submit"><i class="fas fa-search"></i></button>
-    </div>
-    <!-- Acțiuni rapide -->
-    <div class="header-actions">
-      <!-- Link login, vizibil doar când user NU este logat -->
-      <a href="login.html" id="login-link" class="header-action" title="Autentificare">
-        <i class="fas fa-user"></i>
-      </a>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-title">
+          <a href="index.html" class="logo-link">
+            <img
+              src="../images/logo.png"
+              alt="Fragrance Shop Logo"
+              width="60"
+              height="60"
+            />
+            <h1>Fragrance Shop</h1>
+          </a>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Caută parfumuri, accesorii..." />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <!-- Link login, vizibil doar cand user NU este logat -->
+          <a
+            href="login.html"
+            id="login-link"
+            class="header-action"
+            title="Autentificare"
+          >
+            <i class="fas fa-user"></i>
+          </a>
+          <!-- Meniu user, vizibil doar cand user ESTE logat -->
+          <div id="user-menu" class="user-dropdown" style="display: none">
+            <button
+              class="header-action user-btn"
+              id="user-btn"
+              title="Contul meu"
+            >
+              <i class="fas fa-user-circle"></i>
+              <span id="user-name" class="user-name"></span>
+              <span id="user-role-badge" class="user-role-badge"></span>
+              <i class="fas fa-chevron-down chevron"></i>
+            </button>
+            <ul class="user-menu" id="user-menu-list">
+              <li>
+                <a href="profile.html"
+                  ><i class="fas fa-user"></i> Profilul meu</a
+                >
+              </li>
+              <li>
+                <a href="orders.html"
+                  ><i class="fas fa-box"></i> Comenzile mele</a
+                >
+              </li>
+              <li>
+                <a href="wishlist.html"
+                  ><i class="fas fa-heart"></i> Favorite</a
+                >
+              </li>
+              <li>
+                <a href="#" id="logout-btn" class="logout-btn"
+                  ><i class="fas fa-sign-out-alt"></i> Logout</a
+                >
+              </li>
+            </ul>
+          </div>
 
-      <!-- Meniu user, vizibil doar când user ESTE logat -->
-      <div id="user-menu" class="user-dropdown" style="display:none;">
-        <button class="header-action user-btn" id="user-btn" title="Contul meu">
-      <i class="fas fa-user-circle"></i>
-      <span class="user-info">
-        <span id="user-name" class="user-name"></span>
-        <span id="user-role-badge" class="user-role-badge">USER</span>
-        </span>
-      <i class="fas fa-chevron-down chevron"></i>
+          <a href="cart.html" class="header-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>
+              <span class="cart-amount">0,00 lei</span><br />
+              <span class="cart-count">0 Produsul</span>
+            </span>
+          </a>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
         </button>
-      
-
-        <ul class="user-menu" id="user-menu-list">
-          <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
-          <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
-          <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
-          <li><a href="#" id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-      </div>
-
-      <a href="cart.html" class="header-cart">
-        <i class="fas fa-shopping-cart"></i>
-        <span>
-          <span class="cart-amount">0,00 lei</span><br>
-          <span class="cart-count">0 Produsul</span>
-        </span>
-      </a>
-    </div>
-
-    <button class="menu-toggle" id="menu-toggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    <nav class="main-menu" id="main-menu">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
-        <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
-          <ul class="submenu">
-            <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
-            <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+        <nav class="main-menu" id="main-menu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Acasă</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fas fa-shopping-bag"></i> Produse</a
+              >
+              <ul class="submenu">
+                <li>
+                  <a href="#"><i class="fa fa-star"></i> Parfumuri</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-gem"></i> Accesorii</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="offers.html" class="nav-link"
+                ><i class="fas fa-tags"></i> Oferte</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
           </ul>
-        </li>
-        <li class="nav-item"><a href="offers.html" class="nav-link"><i class="fas fa-tags"></i> Oferte</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        </nav>
+      </div>
+    </header>
 
-  
-      
     <main class="main-content">
       <!-- Welcome section -->
       <section class="welcome-section">
         <div class="welcome-card">
-            <div class="welcome-icon">
-                <i class="fa-solid fa-spray-can-sparkles"></i>
-            </div>
-            <h2>Bine ai venit la Fragrance Shop!</h2>
-            <p class="welcome-subtitle">
-                Descoperă cele mai elegante parfumuri pentru orice ocazie.<br>
-                Inspiră rafinament și prospețime în fiecare zi.
-            </p>
-            <a href="/pages/products.html" class="welcome-btn">
-                Vezi colecția <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
-    </section>
-
-        <!-- Slider -->
-        <section id="custom-slider-section">
-          <div id="custom-slider">
-            <button class="slider-arrow slider-arrow-left"><i class="fa fa-chevron-left"></i></button>
-            <div class="slider-wrapper">
-              <div class="slider-items">
-                <div class="slider-item">
-                  <img src="../images/banner1.jpg" alt="Banner 1">
-                </div>
-                <div class="slider-item">
-                  <img src="../images/banner2.jpg" alt="Banner 2">
-                </div>
-                <div class="slider-item">
-                  <img src="../images/banner3.jpg" alt="Banner 3">
-                </div>
-                <div class="slider-item">
-                  <video src="../images/johnny_deep.mp4" poster="../images/sauvage_deep.jpg" muted></video>
-                </div>
-              </div>
-            </div>
-            <button class="slider-arrow slider-arrow-right"><i class="fa fa-chevron-right"></i></button>
-            <div class="slider-dots"></div>
+          <div class="welcome-icon">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
           </div>
-        </section>
-        
-        <!-- Sectiunea cu parfumuri populare -->
-        <section class="popular-perfumes">
-          <h2>
-              <i class="fas fa-star"></i> Parfumuri populare
-          </h2>
-      
-          <article class="perfume-card">
-              <h3>Chanel No. 5</h3>
-              <figure>
-                  <img src="../images/chanel_no5.jpg" alt="Chanel No. 5">
-              </figure>
-              <div class="perfume-meta">
-                  <span class="brand-badge"><i class="fas fa-tag"></i> Chanel</span>
-                  <span class="price-badge"><i class="fas fa-dollar-sign"></i> 500 RON</span>
-              </div>
-              <p class="description">Un parfum floral clasic pentru femei.</p>
-          </article>
-      
-          <article class="perfume-card">
-              <h3>Dior Sauvage EDT</h3>
-              <figure>
-                  <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage">
-              </figure>
-              <div class="perfume-meta">
-                  <span class="brand-badge"><i class="fas fa-tag"></i> Dior</span>
-                  <span class="price-badge"><i class="fas fa-dollar-sign"></i> 450 RON</span>
-              </div>
-              <p class="description">Un parfum masculin intens cu note lemnoase.</p>
-          </article>
+          <h2>Bine ai venit la Fragrance Shop!</h2>
+          <p class="welcome-subtitle">
+            Descoperă cele mai elegante parfumuri pentru orice ocazie.<br />
+            Inspiră rafinament și prospețime în fiecare zi.
+          </p>
+          <a href="/pages/products.html" class="welcome-btn">
+            Vezi colecția <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
       </section>
-      
+
+      <!-- Slider -->
+      <section id="custom-slider-section">
+        <div id="custom-slider">
+          <button class="slider-arrow slider-arrow-left">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div class="slider-wrapper">
+            <div class="slider-items">
+              <div class="slider-item">
+                <img src="../images/banner1.jpg" alt="Banner 1" />
+              </div>
+              <div class="slider-item">
+                <img src="../images/banner2.jpg" alt="Banner 2" />
+              </div>
+              <div class="slider-item">
+                <img src="../images/banner3.jpg" alt="Banner 3" />
+              </div>
+              <div class="slider-item">
+                <video
+                  src="../images/johnny_deep.mp4"
+                  poster="../images/sauvage_deep.jpg"
+                  muted
+                ></video>
+              </div>
+            </div>
+          </div>
+          <button class="slider-arrow slider-arrow-right">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+          <div class="slider-dots"></div>
+        </div>
+      </section>
+
+      <!-- Sectiunea cu parfumuri populare -->
+      <section class="popular-perfumes">
+        <h2><i class="fas fa-star"></i> Parfumuri populare</h2>
+
+        <article class="perfume-card">
+          <h3>Chanel No. 5</h3>
+          <figure>
+            <img src="../images/chanel_no5.jpg" alt="Chanel No. 5" />
+          </figure>
+          <div class="perfume-meta">
+            <span class="brand-badge"><i class="fas fa-tag"></i> Chanel</span>
+            <span class="price-badge"
+              ><i class="fas fa-dollar-sign"></i> 500 RON</span
+            >
+          </div>
+          <p class="description">Un parfum floral clasic pentru femei.</p>
+        </article>
+
+        <article class="perfume-card">
+          <h3>Dior Sauvage EDT</h3>
+          <figure>
+            <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage" />
+          </figure>
+          <div class="perfume-meta">
+            <span class="brand-badge"><i class="fas fa-tag"></i> Dior</span>
+            <span class="price-badge"
+              ><i class="fas fa-dollar-sign"></i> 450 RON</span
+            >
+          </div>
+          <p class="description">Un parfum masculin intens cu note lemnoase.</p>
+        </article>
+      </section>
+
       <!-- Sectiunea cu recenzii -->
       <aside class="reviews">
-          <h2>
-              <i class="fas fa-comments"></i> Recenzii recente
-          </h2>
+        <h2><i class="fas fa-comments"></i> Recenzii recente</h2>
 
-          <form id="reviewForm">
-              <input type="text" id="nameInput" placeholder="Numele tău" required>
-              <input type="text" id="perfumeInput" placeholder="Parfumul" required>
-              <input type="text" id="reviewInput" placeholder="Recenzia ta" required>
-              <select id="starsInput" required>
-                  <option value="">Stele</option>
-                  <option value="1">⭐</option>
-                  <option value="2">⭐⭐</option>
-                  <option value="3">⭐⭐⭐</option>
-                  <option value="4">⭐⭐⭐⭐</option>
-                  <option value="5">⭐⭐⭐⭐⭐</option>
-              </select>
-              <button type="submit">Adaugă Recenzie</button>
-          </form>
-      
-          <table class="sortable">
-              <thead>
-                  <tr>
-                      <th><i class="fas fa-user"></i> Nume</th>
-                      <th><i class="fas fa-spray-can"></i> Parfum</th>
-                      <th><i class="fas fa-comment-dots"></i> Recenzie</th>
-                      <th><i class="fas fa-star"></i> Stele</th>
-                  </tr>
-              </thead>
-              <tbody id="reviewsTableBody">
-                  <tr>
-                      <td>Maria</td>
-                      <td>Chanel No. 5</td>
-                      <td>Un parfum elegant și rafinat, perfect pentru seară.</td>
-                      <td>5</td>
-                  </tr>
-                  <tr>
-                      <td>Alex Rachiu</td>
-                      <td>Dior Sauvage</td>
-                      <td>Miroase jumatate de Cluj asa!</td>
-                      <td>1</td>
-                  </tr>
-                  <tr>
-                      <td>Marian de la Oradie</td>
-                      <td>Dior Sauvage</td>
-                      <td>Topul de pe lume</td>
-                      <td>4</td>
-                  </tr>
-                  <tr>
-                      <td>Vasile</td>
-                      <td>Armani Code Parfum</td>
-                      <td>nu tine de loc bai frate am dat banii degeaba..........</td>
-                      <td>1</td>
-                  </tr>
-              </tbody>
-          </table>
+        <form id="reviewForm">
+          <input type="text" id="nameInput" placeholder="Numele tău" required />
+          <input
+            type="text"
+            id="perfumeInput"
+            placeholder="Parfumul"
+            required
+          />
+          <input
+            type="text"
+            id="reviewInput"
+            placeholder="Recenzia ta"
+            required
+          />
+          <select id="starsInput" required>
+            <option value="">Stele</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
+          </select>
+          <button type="submit">Adaugă Recenzie</button>
+        </form>
+
+        <table class="sortable">
+          <thead>
+            <tr>
+              <th><i class="fas fa-user"></i> Nume</th>
+              <th><i class="fas fa-spray-can"></i> Parfum</th>
+              <th><i class="fas fa-comment-dots"></i> Recenzie</th>
+              <th><i class="fas fa-star"></i> Stele</th>
+            </tr>
+          </thead>
+          <tbody id="reviewsTableBody">
+            <tr>
+              <td>Maria</td>
+              <td>Chanel No. 5</td>
+              <td>Un parfum elegant și rafinat, perfect pentru seară.</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>Alex Rachiu</td>
+              <td>Dior Sauvage</td>
+              <td>Miroase jumatate de Cluj asa!</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Marian de la Oradie</td>
+              <td>Dior Sauvage</td>
+              <td>Topul de pe lume</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>Vasile</td>
+              <td>Armani Code Parfum</td>
+              <td>nu tine de loc bai frate am dat banii degeaba..........</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
       </aside>
     </main>
 
     <!-- Sectiunea cu descopera mai mult -->
     <section id="dynamic-list-section" class="discover-section">
       <h2 class="discover-title">
-          <i class="fas fa-search"></i> Descoperă mai mult
+        <i class="fas fa-search"></i> Descoperă mai mult
       </h2>
       <ul id="dynamic-list">
-          <li class="list-item visible">
-              <div><i class="fas fa-leaf"></i> Parfumurile noastre sunt create cu esențe naturale rare.</div>
-              <a href="#" class="discover-link">Read more</a>
-          </li>
-          <li class="list-item">
-              <div><i class="fas fa-shipping-fast"></i> Livrare rapidă oriunde în România în 24-48h.</div>
-              <a href="#" class="discover-link">Read more</a>
-          </li>
-          <li class="list-item">
-              <div><i class="fas fa-gift"></i> Fiecare parfum este ambalat manual cu grijă.</div>
-              <a href="#" class="discover-link">Read more</a>
-          </li>
-          <li class="list-item">
-              <div><i class="fas fa-user-check"></i> Reduceri speciale pentru membrii autentificați.</div>
-              <a href="#" class="discover-link">Read more</a>
-          </li>
+        <li class="list-item visible">
+          <div>
+            <i class="fas fa-leaf"></i> Parfumurile noastre sunt create cu
+            esențe naturale rare.
+          </div>
+          <a href="#" class="discover-link">Read more</a>
+        </li>
+        <li class="list-item">
+          <div>
+            <i class="fas fa-shipping-fast"></i> Livrare rapidă oriunde în
+            România în 24-48h.
+          </div>
+          <a href="#" class="discover-link">Read more</a>
+        </li>
+        <li class="list-item">
+          <div>
+            <i class="fas fa-gift"></i> Fiecare parfum este ambalat manual cu
+            grijă.
+          </div>
+          <a href="#" class="discover-link">Read more</a>
+        </li>
+        <li class="list-item">
+          <div>
+            <i class="fas fa-user-check"></i> Reduceri speciale pentru membrii
+            autentificați.
+          </div>
+          <a href="#" class="discover-link">Read more</a>
+        </li>
       </ul>
       <div class="list-buttons">
-          <button id="prevBtn"><i class="fas fa-chevron-left"></i> Previous</button>
-          <button id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
+        <button id="prevBtn">
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
       </div>
-  </section>
-  
+    </section>
+
     <footer class="footer-modern">
       <div class="footer-main-row">
         <div class="footer-col logo-newsletter">
           <div class="footer-logo-wrap">
-            <img src="../images/logo.png" alt="Fragrance Shop Logo" class="footer-logo">
+            <img
+              src="../images/logo.png"
+              alt="Fragrance Shop Logo"
+              class="footer-logo"
+            />
             <p class="footer-slogan">Magia aromelor!</p>
           </div>
           <div class="footer-newsletter">
             <h2>Obțineți cele mai recente știri și vânzări speciale</h2>
-            <p>Te poți dezabona în orice moment. Pentru aceasta te rugăm să folosești informațiile noastre de contact din nota legală.</p>
+            <p>
+              Te poți dezabona în orice moment. Pentru aceasta te rugăm să
+              folosești informațiile noastre de contact din nota legală.
+            </p>
             <form class="newsletter-form">
-              <input type="email" placeholder="Adresa dvs. de e-mail" required>
+              <input
+                type="email"
+                placeholder="Adresa dvs. de e-mail"
+                required
+              />
               <button type="submit">ABONAȚI-VĂ</button>
             </form>
             <div class="newsletter-privacy">
-              <input type="checkbox" id="privacy" required>
-              <label for="privacy">Sunt de acord cu <a href="#">Politica de confidențialitate</a></label>
+              <input type="checkbox" id="privacy" required />
+              <label for="privacy"
+                >Sunt de acord cu
+                <a href="#">Politica de confidențialitate</a></label
+              >
             </div>
           </div>
         </div>
@@ -283,24 +376,28 @@
           <div>
             <h4>METODA DE PLATĂ</h4>
             <div class="footer-payments">
-              <img src="../images/visa.png" alt="Visa">
-              <img src="../images/mastercard.png" alt="Mastercard">
+              <img src="../images/visa.png" alt="Visa" />
+              <img src="../images/mastercard.png" alt="Mastercard" />
             </div>
           </div>
           <div>
             <h4>URMAȚI-NE</h4>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            </div>            
+              <a href="#" aria-label="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+            </div>
           </div>
           <div>
             <h4>MODALITATE DE LIVRARE</h4>
             <div class="footer-delivery">
-              <img src="../images/sameday.png" alt="Sameday">
-              <img src="../images/easybox.png" alt="Easybox">
-              <img src="../images/cargus.png" alt="Cargus">
-              <img src="../images/fan.png" alt="Fan Courier">
+              <img src="../images/sameday.png" alt="Sameday" />
+              <img src="../images/easybox.png" alt="Easybox" />
+              <img src="../images/cargus.png" alt="Cargus" />
+              <img src="../images/fan.png" alt="Fan Courier" />
             </div>
           </div>
         </div>
@@ -311,14 +408,14 @@
     </footer>
 
     <!-- Popup general pentru imagine/video -->
-    <div id="popup-overlay" style="display:none;">
+    <div id="popup-overlay" style="display: none">
       <div id="popup-inner">
-      <span id="popup-close">&times;</span>
+        <span id="popup-close">&times;</span>
       </div>
-  </div>
-    
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../scripts/main.js"></script>
     <script src="../scripts/logout.js"></script>
-</body>
+  </body>
 </html>
