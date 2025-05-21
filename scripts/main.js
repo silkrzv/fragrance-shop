@@ -1,3 +1,107 @@
+// functionalitatea de header dinamic
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const user = JSON.parse(localStorage.getItem('user') || 'null');
+  const loginLink = document.getElementById('login-link');
+  const userMenu = document.getElementById('user-menu');
+  const userNameSpan = document.getElementById('user-name');
+  const userRoleBadge = document.getElementById('user-role-badge');
+
+  if (user) {
+    // Ascunde link-ul login
+    if (loginLink) loginLink.style.display = "none";
+
+    // Arată meniul user
+    if (userMenu) {
+      userMenu.style.display = "flex";
+
+      // Afișează numele complet (first_name + last_name dacă există)
+      if (userNameSpan) {
+        userNameSpan.textContent = (user.first_name || '') + (user.last_name ? ' ' + user.last_name : '') || "Contul meu";
+      }
+
+      // Afișează rolul userului
+      if (userRoleBadge && user.role) {
+        userRoleBadge.textContent = user.role.toLowerCase() === 'admin' ? 'Admin' : 'User';
+        userRoleBadge.className = 'user-role-badge ' + user.role.toLowerCase();
+      }
+    }
+  } else {
+    // User neautentificat
+    if (loginLink) loginLink.style.display = "flex";
+    if (userMenu) userMenu.style.display = "none";
+  }
+
+  // Dropdown user
+  const userBtn = document.getElementById('user-btn');
+  if (userBtn && userMenu) {
+    userBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      userMenu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      userMenu.classList.remove('open');
+    });
+
+    userMenu.addEventListener('click', e => e.stopPropagation());
+  }
+});
+
+
+
+
+
+
+// functionalitate de actualizare a coșului
+
+document.addEventListener('DOMContentLoaded', () => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.disabled = !user;
+  });
+  
+  updateCartUI();
+
+  // Funcție care actualizează suma și numărul produselor în header
+  function updateCartUI() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '{}');
+    const cartCountElem = document.querySelector('.cart-count');
+    const cartAmountElem = document.querySelector('.cart-amount');
+
+    if (!cartCountElem || !cartAmountElem) return;
+
+    // Preluăm lista produselor pentru a calcula suma totală
+    fetch('/fragrance_shop/api/controllers/products.php')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.success) return;
+
+        let totalCount = 0;
+        let totalAmount = 0;
+
+        for (const [productId, qty] of Object.entries(cart)) {
+          const product = data.products.find(p => p.id == productId);
+          if (product) {
+            totalCount += qty;
+            totalAmount += product.price * qty;
+          }
+        }
+
+        cartCountElem.textContent = `${totalCount} ${totalCount === 1 ? 'Produs' : 'Produse'}`;
+        cartAmountElem.textContent = totalAmount.toFixed(2) + ' lei';
+      });
+  }
+
+  // Ascultă evenimentul custom pentru actualizare coș (opțional)
+  document.addEventListener('cartUpdated', updateCartUI);
+});
+
+
+
+
+
 // sortare tabel recenzii
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("table.sortable").forEach((table) => {

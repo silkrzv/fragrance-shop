@@ -178,7 +178,7 @@ document.getElementById("dob").addEventListener("input", function () {
     updateDateValidationIndicator(this);
 });
 
-function validateFormOnSubmit(event) {
+function validateFormOnSubmit(form) {
     let isValid = true;
 
     // Validare First Name
@@ -219,11 +219,16 @@ function validateFormOnSubmit(event) {
     // Validare Date of Birth
     const dob = document.getElementById("dob");
     const dobValue = dob.value; // Format aaaa-ll-zz
-    const [year, month, day] = dobValue.split('-');
-    const formattedDob = `${day}/${month}/${year}`;
-    if (!validateDate(formattedDob, 'zz/ll/aaaa')) {
+    if (!dobValue) {
         updateDateValidationIndicator(dob);
         isValid = false;
+    } else {
+        const [year, month, day] = dobValue.split('-');
+        const formattedDob = `${day}/${month}/${year}`;
+        if (!validateDate(formattedDob, 'zz/ll/aaaa')) {
+            updateDateValidationIndicator(dob);
+            isValid = false;
+        }
     }
 
     // Validare Phone Number
@@ -236,18 +241,19 @@ function validateFormOnSubmit(event) {
     // Validare Terms and Conditions
     const terms = document.querySelector("input[name='terms']");
     if (!terms.checked) {
-        alert("You must agree to the Terms and Conditions.");
+        alert("Trebuie să fii de acord cu Termenii și Condițiile.");
         isValid = false;
     }
 
+    // Dacă există erori, afișează un singur mesaj
     if (!isValid) {
-        alert("Please correct the errors in the form.");
-        window.location.href = "sign_up.html"; 
-    } else {
-        alert("Form submitted successfully!");
-        window.location.href = "index.html";
+        alert("Te rugăm să corectezi erorile din formular.");
     }
+
+    // Returnează true dacă formularul e valid, altfel false
+    return isValid;
 }
 
-// Adaugă event listener pentru formular
-document.querySelector("form").addEventListener("submit", validateFormOnSubmit);
+
+
+

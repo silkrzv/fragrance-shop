@@ -22,32 +22,34 @@
       </div>
       <!-- Acțiuni rapide -->
       <div class="header-actions">
-        <!-- Dacă userul NU este logat -->
-        <a href="login.html" class="header-action" title="Autentificare"><i class="fas fa-user"></i></a>
-        <a href="wishlist.html" class="header-action" title="Favorite"><i class="fas fa-heart"></i></a>
-        <a href="cart.html" class="header-cart">
-          <i class="fas fa-shopping-cart"></i>
-          <span>
-            <span class="cart-amount">0,00 lei</span><br>
-            <span class="cart-count">0 Produsul</span>
-          </span>
-        </a>
-        <!-- Dacă userul ESTE logat -->
-        <!--
-        <div class="user-dropdown">
-          <button class="header-action user-btn" title="Contul meu">
-            <i class="fas fa-user-circle"></i>
-          </button>
-          <ul class="user-menu">
-            <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
-            <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
-            <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
-            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-          </ul>
-        </div>
-        <a href="cart.html" class="header-cart"> ... </a>
-        -->
-      </div>
+  <!-- Link login, vizibil doar când user NU este logat -->
+  <a href="login.html" id="login-link" class="header-action" title="Autentificare">
+    <i class="fas fa-user"></i>
+  </a>
+
+  <!-- Meniu user, vizibil doar când user ESTE logat -->
+  <div id="user-menu" class="user-dropdown" style="display:none;">
+    <button class="header-action user-btn" title="Contul meu">
+      <i class="fas fa-user-circle"></i>
+      <span id="user-name"></span>
+    </button>
+    <ul class="user-menu-list">
+      <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
+      <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
+      <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
+      <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </div>
+
+  <a href="cart.html" class="header-cart">
+    <i class="fas fa-shopping-cart"></i>
+    <span>
+      <span class="cart-amount">0,00 lei</span><br>
+      <span class="cart-count">0 Produsul</span>
+    </span>
+  </a>
+</div>
+
       <button class="menu-toggle" id="menu-toggle">
         <i class="fas fa-bars"></i>
       </button>
@@ -66,11 +68,12 @@
       </nav>
     </div>
   </header>
+  
 
     <main class="signup-page">
         <section class="signup-container">
             <h2 class="signup-title"><i class="fas fa-user-plus"></i> Înregistrare</h2>
-            <form method="post" action="register_process.php" class="signup-form">
+            <form class="signup-form">
                 <fieldset class="signup-fieldset">
                     <legend class="signup-legend"><i class="fas fa-user"></i> Detalii cont</legend>
             
@@ -166,7 +169,7 @@
       <div class="footer-main-row">
         <div class="footer-col logo-newsletter">
           <div class="footer-logo-wrap">
-            <img src="/images/logo.png" alt="Fragrance Shop Logo" class="footer-logo">
+            <img src="../images/logo.png" alt="Fragrance Shop Logo" class="footer-logo">
             <p class="footer-slogan">Magia aromelor!</p>
           </div>
           <div class="footer-newsletter">
@@ -205,8 +208,8 @@
           <div>
             <h4>METODA DE PLATĂ</h4>
             <div class="footer-payments">
-              <img src="/images/visa.png" alt="Visa">
-              <img src="/images/mastercard.png" alt="Mastercard">
+              <img src="../images/visa.png" alt="Visa">
+              <img src="../images/mastercard.png" alt="Mastercard">
             </div>
           </div>
           <div>
@@ -219,10 +222,10 @@
           <div>
             <h4>MODALITATE DE LIVRARE</h4>
             <div class="footer-delivery">
-              <img src="/images/sameday.png" alt="Sameday">
-              <img src="/images/easybox.png" alt="Easybox">
-              <img src="/images/cargus.png" alt="Cargus">
-              <img src="/images/fan.png" alt="Fan Courier">
+              <img src="../images/sameday.png" alt="Sameday">
+              <img src="../images/easybox.png" alt="Easybox">
+              <img src="../images/cargus.png" alt="Cargus">
+              <img src="../images/fan.png" alt="Fan Courier">
             </div>
           </div>
         </div>
@@ -232,8 +235,10 @@
       </div>
     </footer>
 
-    <script src="/scripts/validate.js"></script>
-    <script src="/scripts/prefixes.js"></script>
-    <script src="/scripts/judet_oras.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/prefixes.js"></script>
+    <script src="../scripts/judet_oras.js"></script>
+    <script src="../scripts/validate.js"></script>
+    <script src="../scripts/signup.js"></script>
 </body>
 </html>

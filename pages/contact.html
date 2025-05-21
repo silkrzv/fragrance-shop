@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Fragrance Shop</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-title">
+        <a href="index.html" class="logo-link">
+          <img src="../images/logo.png" alt="Fragrance Shop Logo" width="60" height="60" />
+          <h1>Fragrance Shop</h1>
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Caută parfumuri, accesorii..." />
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </div>
+      <!-- Acțiuni rapide -->
+      <div class="header-actions">
+        <a href="login.html" id="login-link" class="header-action" title="Autentificare">
+          <i class="fas fa-user"></i>
+        </a>
+
+        <div id="user-menu" class="user-dropdown" style="display:none;">
+          <button class="header-action user-btn" id="user-btn" title="Contul meu">
+            <i class="fas fa-user-circle"></i>
+            <span class="user-info">
+              <span id="user-name" class="user-name"></span>
+              <span id="user-role-badge" class="user-role-badge"></span>
+            </span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <ul class="user-menu" id="user-menu-list">
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
+            <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
+            <li><a href="wishlist.html"><i class="fas fa-heart"></i> Favorite</a></li>
+            <li><a href="#" id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+          </ul>
+        </div>
+
+        <a href="cart.html" class="header-cart">
+          <i class="fas fa-shopping-cart"></i>
+          <span>
+            <span class="cart-amount">0,00 lei</span><br />
+            <span class="cart-count">0 Produsul</span>
+          </span>
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="main-menu" id="main-menu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Acasă</a></li>
+          <li class="nav-item">
+            <a href="products.html" class="nav-link"><i class="fas fa-shopping-bag"></i> Produse</a>
+            <ul class="submenu">
+              <li><a href="#"><i class="fa fa-star"></i> Parfumuri</a></li>
+              <li><a href="#"><i class="fas fa-gem"></i> Accesorii</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="offers.html" class="nav-link"><i class="fas fa-tags"></i> Oferte</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="main-content">
+  <section class="contact-section" style="max-width: 700px; margin: 48px auto; background: #fff; border-radius: 18px; box-shadow: 0 4px 24px rgba(80,80,120,0.09); padding: 44px 40px;">
+    <h2 style="text-align:center;"><i class="fas fa-paper-plane" style="color:#a184c7; margin-right:10px;"></i>Contactează-ne</h2>
+    <form id="contact-form" autocomplete="off">
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user" style="color:#7380C7; margin-right:7px;"></i>Nume complet *</label>
+        <input type="text" id="name" name="name" required maxlength="100" />
+      </div>
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope" style="color:#7380C7; margin-right:7px;"></i>Email *</label>
+        <input type="email" id="email" name="email" required maxlength="100" />
+      </div>
+      <div class="form-group">
+        <label for="phone"><i class="fas fa-phone" style="color:#7380C7; margin-right:7px;"></i>Telefon</label>
+        <input type="text" id="phone" name="phone" maxlength="30" />
+      </div>
+      <div class="form-group">
+        <label for="message"><i class="fas fa-comment-dots" style="color:#7380C7; margin-right:7px;"></i>Mesaj *</label>
+        <textarea id="message" name="message" rows="6" required maxlength="1000" style="resize: none;"></textarea>
+      </div>
+      <button type="submit" class="btn-send login-button">Trimite mesajul</button>
+      <div id="contact-feedback" style="margin-top: 16px;"></div>
+    </form>
+  </section>
+</main>
+
+
+  <!-- Footer -->
+  <footer class="footer-modern">
+    <div class="footer-main-row">
+      <div class="footer-col logo-newsletter">
+        <div class="footer-logo-wrap">
+          <img src="../images/logo.png" alt="Fragrance Shop Logo" class="footer-logo" />
+          <p class="footer-slogan">Magia aromelor!</p>
+        </div>
+        <div class="footer-newsletter">
+          <h2>Obțineți cele mai recente știri și vânzări speciale</h2>
+          <p>Te poți dezabona în orice moment. Pentru aceasta te rugăm să folosești informațiile noastre de contact din nota legală.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Adresa dvs. de e-mail" required />
+            <button type="submit">ABONAȚI-VĂ</button>
+          </form>
+          <div class="newsletter-privacy">
+            <input type="checkbox" id="privacy" required />
+            <label for="privacy">Sunt de acord cu <a href="#">Politica de confidențialitate</a></label>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col links-col">
+        <h4>EXPLORAȚI MAI MULT</h4>
+        <ul>
+          <li><a href="#">Avantajele noastre</a></li>
+          <li><a href="#">Pentru noi</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col links-col">
+        <h4>PENTRU CLIENT</h4>
+        <ul>
+          <li><a href="#">Livrare</a></li>
+          <li><a href="#">Termeni și condiții de utilizare</a></li>
+          <li><a href="#">Politica de confidențialitate</a></li>
+          <li><a href="#">Refuzul de cumpărare</a></li>
+          <li><a href="#">Contacte</a></li>
+          <li><a href="#">Harta site-ului</a></li>
+        </ul>
+      </div>
+      <div class="footer-col right-col">
+        <div>
+          <h4>METODA DE PLATĂ</h4>
+          <div class="footer-payments">
+            <img src="../images/visa.png" alt="Visa" />
+            <img src="../images/mastercard.png" alt="Mastercard" />
+          </div>
+        </div>
+        <div>
+          <h4>URMAȚI-NE</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>MODALITATE DE LIVRARE</h4>
+          <div class="footer-delivery">
+            <img src="../images/sameday.png" alt="Sameday" />
+            <img src="../images/easybox.png" alt="Easybox" />
+            <img src="../images/cargus.png" alt="Cargus" />
+            <img src="../images/fan.png" alt="Fan Courier" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Fragrance Shop</p>
+    </div>
+  </footer>
+
+  <script src="../scripts/logout.js"></script>
+  <script src="../scripts/main.js"></script>
+  <script src="../scripts/contact.js"></script>
+</body>
+</html>

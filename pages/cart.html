@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <title>Parfumuri - Fragrance Shop</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coșul Meu - Fragrance Shop</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Header -->
   <header>
   <div class="header-container">
     <div class="logo-title">
@@ -30,15 +32,11 @@
       <!-- Meniu user, vizibil doar când user ESTE logat -->
       <div id="user-menu" class="user-dropdown" style="display:none;">
         <button class="header-action user-btn" id="user-btn" title="Contul meu">
-      <i class="fas fa-user-circle"></i>
-      <span class="user-info">
-        <span id="user-name" class="user-name"></span>
-        <span id="user-role-badge" class="user-role-badge">USER</span>
-        </span>
-      <i class="fas fa-chevron-down chevron"></i>
+          <i class="fas fa-user-circle"></i>
+          <span id="user-name" class="user-name"></span>
+          <span id="user-role-badge" class="user-role-badge"></span>
+          <i class="fas fa-chevron-down chevron"></i>
         </button>
-      
-
         <ul class="user-menu" id="user-menu-list">
           <li><a href="profile.html"><i class="fas fa-user"></i> Profilul meu</a></li>
           <li><a href="orders.html"><i class="fas fa-box"></i> Comenzile mele</a></li>
@@ -75,18 +73,27 @@
   </div>
 </header>
 
-    <!-- Conținut principal -->
-<main class="main-content">
-  <section class="parfum-list">
-    <h2 class="section-title"><i class="fa-solid fa-store"></i> Lista Parfumurilor</h2>
-    <div id="products-container">
-      <!-- Produsele vor fi generate dinamic aici -->
-    </div>
-  </section>
-</main>
+  <!-- Main content -->
+  <main class="main-content">
+    <section class="cart-section" style="max-width: 900px; margin: 40px auto; padding: 0 20px;">
+      <h2>Coșul tău de cumpărături</h2>
+      <div id="cart-container" style="margin-top: 20px;">
+        <!-- Produsele din coș vor fi afișate aici -->
+      </div>
+      <div id="cart-summary" style="margin-top: 20px; font-weight: bold; font-size: 1.2rem;">
+        Total: <span id="cart-total">0,00 lei</span>
+      </div>
+      <button id="clear-cart-btn" style="margin-top: 10px; padding: 10px 20px; background: #ff5a5f; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Golește coșul
+      </button>
+      <button id="checkout-btn" disabled style="margin-top: 10px; margin-left: 10px; padding: 10px 20px; background: #38ada9; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Finalizează comanda
+      </button>
+    </section>
+  </main>
 
-
-<footer class="footer-modern">
+  <!-- Footer -->
+   <footer class="footer-modern">
       <div class="footer-main-row">
         <div class="footer-col logo-newsletter">
           <div class="footer-logo-wrap">
@@ -156,16 +163,8 @@
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../scripts/products.js"></script>
-    <script src="../scripts/main.js"></script>
-
-    <!-- Popup general pentru imagine/video -->
-    <div id="popup-overlay" style="display:none;">
-        <div id="popup-inner">
-        <span id="popup-close">&times;</span>
-        </div>
-    </div>
-  
+  <script src="../scripts/logout.js"></script>
+  <script src="../scripts/main.js"></script> 
+  <script src="../scripts/cart.js"></script>
 </body>
 </html>
