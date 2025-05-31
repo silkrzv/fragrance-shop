@@ -1,53 +1,95 @@
-// functionalitatea de header dinamic
-
 document.addEventListener("DOMContentLoaded", () => {
   const user = JSON.parse(localStorage.getItem("user") || "null");
   const loginLink = document.getElementById("login-link");
   const userMenu = document.getElementById("user-menu");
-  const userNameSpan = document.getElementById("user-name");
-  const userRoleBadge = document.getElementById("user-role-badge");
+  const wishlistHeader = document.getElementById("header-wishlist");
 
   if (user) {
     if (loginLink) loginLink.style.display = "none";
-
-    if (userMenu) {
-      userMenu.style.display = "flex";
-
-      // Afiseaza numele complet (first_name + last_name daca exista)
-      if (userNameSpan) {
-        userNameSpan.textContent =
-          (user.first_name || "") +
-            (user.last_name ? " " + user.last_name : "") || "Contul meu";
-      }
-
-      // Afiseaza rolul userului
-      if (userRoleBadge && user.role) {
-        userRoleBadge.textContent =
-          user.role.toLowerCase() === "admin" ? "Admin" : "User";
-        userRoleBadge.className = "user-role-badge " + user.role.toLowerCase();
-      }
+    if (userMenu) userMenu.style.display = "flex";
+    if (wishlistHeader) {
+      wishlistHeader.style.display = "flex";
+      updateWishlistHeader();
     }
   } else {
-    // User neautentificat
     if (loginLink) loginLink.style.display = "flex";
     if (userMenu) userMenu.style.display = "none";
+    if (wishlistHeader) wishlistHeader.style.display = "none";
   }
 
-  // Dropdown user
+  // Dropdown user menu toggle (hover și click)
   const userBtn = document.getElementById("user-btn");
   if (userBtn && userMenu) {
+    // Pe click
     userBtn.addEventListener("click", (e) => {
       e.stopPropagation();
       userMenu.classList.toggle("open");
     });
-
+    // Pe hover (desktop)
+    userBtn.addEventListener("mouseenter", () => {
+      userMenu.classList.add("open");
+    });
+    userMenu.addEventListener("mouseleave", () => {
+      userMenu.classList.remove("open");
+    });
+    // Închide la click în afara
     document.addEventListener("click", () => {
       userMenu.classList.remove("open");
     });
-
     userMenu.addEventListener("click", (e) => e.stopPropagation());
   }
+
+  // Listen for wishlist updates to refresh header count
+  document.addEventListener("wishlistUpdated", updateWishlistHeader);
 });
+
+/**
+ * Updates the wishlist icon count in the header.
+ */
+function updateWishlistHeader() {
+  const wishlistHeader = document.getElementById("header-wishlist");
+  if (!wishlistHeader) return;
+
+  const wishlistCountSpan = wishlistHeader.querySelector(".wishlist-count");
+  if (!wishlistCountSpan) return;
+
+  const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  const count = wishlist.length;
+
+  wishlistCountSpan.textContent =
+    count === 1 ? "1 Favorit" : `${count} Favorite`;
+
+  // Manage badge element showing count number
+  let badge = wishlistHeader.querySelector(".wishlist-badge");
+  if (count > 0) {
+    if (!badge) {
+      badge = document.createElement("span");
+      badge.className = "wishlist-badge";
+      wishlistHeader.appendChild(badge);
+    }
+    badge.textContent = count;
+  } else if (badge) {
+    badge.remove();
+  }
+}
+
+// Function to update wishlist count in header
+function updateWishlistHeader() {
+  const wishlistHeader = document.getElementById("header-wishlist");
+  const wishlistCountSpan = wishlistHeader?.querySelector(".wishlist-count");
+  if (!wishlistHeader || !wishlistCountSpan) return;
+
+  const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  const count = wishlist.length;
+
+  wishlistCountSpan.textContent =
+    count === 1 ? "1 Favorit" : `${count} Favorite`;
+
+  const badge = wishlistHeader.querySelector(".wishlist-badge");
+  if (badge) {
+    badge.remove();
+  }
+}
 
 // functionalitate de actualizare a coșului
 

@@ -2,7 +2,8 @@
 <html lang="ro">
   <head>
     <meta charset="UTF-8" />
-    <title>Fragrance Shop - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalii Produs - Fragrance Shop</title>
     <link rel="stylesheet" href="../css/styles.css" />
     <link
       rel="stylesheet"
@@ -132,200 +133,27 @@
     </header>
 
     <main class="main-content">
-      <!-- Welcome section -->
-      <section class="welcome-section">
-        <div class="welcome-card">
-          <div class="welcome-icon">
-            <i class="fa-solid fa-spray-can-sparkles"></i>
-          </div>
-          <h2>Bine ai venit la Fragrance Shop!</h2>
-          <p class="welcome-subtitle">
-            Descoperă cele mai elegante parfumuri pentru orice ocazie.<br />
-            Inspiră rafinament și prospețime în fiecare zi.
-          </p>
-          <a href="/pages/products.html" class="welcome-btn">
-            Vezi colecția <i class="fa-solid fa-arrow-right"></i>
+      <div class="product-details-container">
+        <div id="product-loading" class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Se încarcă detaliile produsului...</p>
+        </div>
+
+        <div id="product-details" style="display: none">
+          <!-- Conținutul va fi generat dinamic -->
+        </div>
+
+        <div id="product-error" style="display: none" class="error-message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>Produsul nu a fost găsit sau a apărut o eroare.</p>
+          <a href="products.html" class="btn-modern btn-primary">
+            <i class="fas fa-arrow-left"></i> Înapoi la produse
           </a>
         </div>
-      </section>
-
-      <!-- Slider -->
-      <section id="custom-slider-section">
-        <div id="custom-slider">
-          <button class="slider-arrow slider-arrow-left">
-            <i class="fa fa-chevron-left"></i>
-          </button>
-          <div class="slider-wrapper">
-            <div class="slider-items">
-              <div class="slider-item">
-                <img src="../images/banner1.jpg" alt="Banner 1" />
-              </div>
-              <div class="slider-item">
-                <img src="../images/banner2.jpg" alt="Banner 2" />
-              </div>
-              <div class="slider-item">
-                <img src="../images/banner3.jpg" alt="Banner 3" />
-              </div>
-              <div class="slider-item">
-                <video
-                  src="../images/johnny_deep.mp4"
-                  poster="../images/sauvage_deep.jpg"
-                  muted
-                ></video>
-              </div>
-            </div>
-          </div>
-          <button class="slider-arrow slider-arrow-right">
-            <i class="fa fa-chevron-right"></i>
-          </button>
-          <div class="slider-dots"></div>
-        </div>
-      </section>
-
-      <!-- Sectiunea cu parfumuri populare -->
-      <section class="popular-perfumes">
-        <h2><i class="fas fa-star"></i> Parfumuri populare</h2>
-
-        <article class="perfume-card">
-          <h3>Chanel No. 5</h3>
-          <figure>
-            <img src="../images/chanel_no5.jpg" alt="Chanel No. 5" />
-          </figure>
-          <div class="perfume-meta">
-            <span class="brand-badge"><i class="fas fa-tag"></i> Chanel</span>
-            <span class="price-badge"
-              ><i class="fas fa-dollar-sign"></i> 500 RON</span
-            >
-          </div>
-          <p class="description">Un parfum floral clasic pentru femei.</p>
-        </article>
-
-        <article class="perfume-card">
-          <h3>Dior Sauvage EDT</h3>
-          <figure>
-            <img src="../images/dior_sauvage.jpg" alt="Dior Sauvage" />
-          </figure>
-          <div class="perfume-meta">
-            <span class="brand-badge"><i class="fas fa-tag"></i> Dior</span>
-            <span class="price-badge"
-              ><i class="fas fa-dollar-sign"></i> 450 RON</span
-            >
-          </div>
-          <p class="description">Un parfum masculin intens cu note lemnoase.</p>
-        </article>
-      </section>
-
-      <!-- Sectiunea cu recenzii -->
-      <aside class="reviews">
-        <h2><i class="fas fa-comments"></i> Recenzii recente</h2>
-
-        <form id="reviewForm">
-          <input type="text" id="nameInput" placeholder="Numele tău" required />
-          <input
-            type="text"
-            id="perfumeInput"
-            placeholder="Parfumul"
-            required
-          />
-          <input
-            type="text"
-            id="reviewInput"
-            placeholder="Recenzia ta"
-            required
-          />
-          <select id="starsInput" required>
-            <option value="">Stele</option>
-            <option value="1">⭐</option>
-            <option value="2">⭐⭐</option>
-            <option value="3">⭐⭐⭐</option>
-            <option value="4">⭐⭐⭐⭐</option>
-            <option value="5">⭐⭐⭐⭐⭐</option>
-          </select>
-          <button type="submit">Adaugă Recenzie</button>
-        </form>
-
-        <table class="sortable">
-          <thead>
-            <tr>
-              <th><i class="fas fa-user"></i> Nume</th>
-              <th><i class="fas fa-spray-can"></i> Parfum</th>
-              <th><i class="fas fa-comment-dots"></i> Recenzie</th>
-              <th><i class="fas fa-star"></i> Stele</th>
-            </tr>
-          </thead>
-          <tbody id="reviewsTableBody">
-            <tr>
-              <td>Maria</td>
-              <td>Chanel No. 5</td>
-              <td>Un parfum elegant și rafinat, perfect pentru seară.</td>
-              <td>5</td>
-            </tr>
-            <tr>
-              <td>Alex Rachiu</td>
-              <td>Dior Sauvage</td>
-              <td>Miroase jumatate de Cluj asa!</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Marian de la Oradie</td>
-              <td>Dior Sauvage</td>
-              <td>Topul de pe lume</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>Vasile</td>
-              <td>Armani Code Parfum</td>
-              <td>nu tine de loc bai frate am dat banii degeaba..........</td>
-              <td>1</td>
-            </tr>
-          </tbody>
-        </table>
-      </aside>
+      </div>
     </main>
 
-    <!-- Sectiunea cu descopera mai mult -->
-    <section id="dynamic-list-section" class="discover-section">
-      <h2 class="discover-title">
-        <i class="fas fa-search"></i> Descoperă mai mult
-      </h2>
-      <ul id="dynamic-list">
-        <li class="list-item visible">
-          <div>
-            <i class="fas fa-leaf"></i> Parfumurile noastre sunt create cu
-            esențe naturale rare.
-          </div>
-          <a href="#" class="discover-link">Read more</a>
-        </li>
-        <li class="list-item">
-          <div>
-            <i class="fas fa-shipping-fast"></i> Livrare rapidă oriunde în
-            România în 24-48h.
-          </div>
-          <a href="#" class="discover-link">Read more</a>
-        </li>
-        <li class="list-item">
-          <div>
-            <i class="fas fa-gift"></i> Fiecare parfum este ambalat manual cu
-            grijă.
-          </div>
-          <a href="#" class="discover-link">Read more</a>
-        </li>
-        <li class="list-item">
-          <div>
-            <i class="fas fa-user-check"></i> Reduceri speciale pentru membrii
-            autentificați.
-          </div>
-          <a href="#" class="discover-link">Read more</a>
-        </li>
-      </ul>
-      <div class="list-buttons">
-        <button id="prevBtn">
-          <i class="fas fa-chevron-left"></i> Previous
-        </button>
-        <button id="nextBtn">Next <i class="fas fa-chevron-right"></i></button>
-      </div>
-    </section>
-
+    <!-- Footer identic -->
     <footer class="footer-modern">
       <div class="footer-main-row">
         <div class="footer-col logo-newsletter">
@@ -414,15 +242,8 @@
       </div>
     </footer>
 
-    <!-- Popup general pentru imagine/video -->
-    <div id="popup-overlay" style="display: none">
-      <div id="popup-inner">
-        <span id="popup-close">&times;</span>
-      </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../scripts/main.js"></script>
     <script src="../scripts/logout.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/product-details.js"></script>
   </body>
 </html>

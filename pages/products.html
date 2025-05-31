@@ -32,7 +32,7 @@
           <button type="submit"><i class="fas fa-search"></i></button>
         </div>
         <div class="header-actions">
-          <!-- Link login, vizibil doar cand user NU este logat -->
+          <!-- Link login, vizibil doar când user NU este logat -->
           <a
             href="login.html"
             id="login-link"
@@ -41,16 +41,16 @@
           >
             <i class="fas fa-user"></i>
           </a>
-          <!-- Meniu user, vizibil doar cand user ESTE logat -->
+          <!-- Meniu user, vizibil doar când user ESTE logat -->
           <div id="user-menu" class="user-dropdown" style="display: none">
             <button
               class="header-action user-btn"
               id="user-btn"
               title="Contul meu"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
               <i class="fas fa-user-circle"></i>
-              <span id="user-name" class="user-name"></span>
-              <span id="user-role-badge" class="user-role-badge"></span>
               <i class="fas fa-chevron-down chevron"></i>
             </button>
             <ul class="user-menu" id="user-menu-list">
@@ -76,7 +76,15 @@
               </li>
             </ul>
           </div>
-
+          <a
+            href="wishlist.html"
+            class="header-action"
+            id="header-wishlist"
+            style="display: none"
+            title="Favorite"
+          >
+            <i class="fas fa-heart"></i>
+          </a>
           <a href="cart.html" class="header-cart">
             <i class="fas fa-shopping-cart"></i>
             <span>
@@ -85,7 +93,6 @@
             </span>
           </a>
         </div>
-
         <button class="menu-toggle" id="menu-toggle">
           <i class="fas fa-bars"></i>
         </button>
@@ -227,12 +234,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../scripts/products.js"></script>
     <script src="../scripts/main.js"></script>
-
-    <!-- Popup general pentru imagine/video -->
-    <div id="popup-overlay" style="display: none">
-      <div id="popup-inner">
-        <span id="popup-close">&times;</span>
-      </div>
-    </div>
+    <script src="../scripts/logout.js"></script>
   </body>
 </html>
