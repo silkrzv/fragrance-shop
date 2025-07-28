@@ -160,4 +160,20 @@ git clone https://github.com/yourusername/fragrance-shop.git
     Ensure you are not exposing sensitive directories (uploads/, models/) if deploying in production.
 
 
+## 🖼️ Screenshots
+
+### Homepage
+![Homepage](images/index_page1.png)
+
+### Shopping Cart
+![Shopping Cart](images/cart.png)
+
+### Products Page
+![Products](images/products.png)
+
+### Profile Page
+![Profile](images/profile_page.png)
+
+### Wishlist
+![Wishlist](images/wishlist1.png)
 
